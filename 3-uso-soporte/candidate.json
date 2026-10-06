@@ -659,9 +659,9 @@
       "lane": "plataforma",
       "col": 4,
       "type": "backend",
-      "label": "Monitoreo de GPS",
-      "sublabel": "offline · sin reportar",
-      "tag": "24/7",
+      "label": "GPS sin reportar",
+      "sublabel": "monitoreo 24/7",
+      "tag": "detalle en 3B",
       "width": 140
     },
     {
@@ -670,8 +670,9 @@
       "col": 5,
       "type": "security",
       "icon": "flag",
-      "label": "◆ ¿Es crítico?",
-      "sublabel": "incidente / emergencia",
+      "label": "◆ ¿Qué tipo?",
+      "sublabel": "duración + contexto",
+      "tag": "umbrales POR DEFINIR",
       "width": 140
     },
     {
@@ -693,12 +694,21 @@
       "width": 140
     },
     {
+      "id": "a_temp",
+      "lane": "auto",
+      "col": 4,
+      "type": "messagebus",
+      "label": "OFFLINE TEMPORAL",
+      "sublabel": "registra y espera",
+      "width": 140
+    },
+    {
       "id": "a_normal",
       "lane": "auto",
       "col": 5,
       "type": "messagebus",
-      "label": "Ticket normal",
-      "sublabel": "cola de soporte",
+      "label": "OFFLINE PERSIST.",
+      "sublabel": "ticket + aviso",
       "width": 140
     },
     {
@@ -706,7 +716,7 @@
       "lane": "crm",
       "col": 3,
       "type": "database",
-      "label": "SOPORTE",
+      "label": "SOPORTE ABIERTO",
       "width": 140
     },
     {
@@ -714,8 +724,8 @@
       "lane": "crm",
       "col": 5,
       "type": "database",
-      "label": "SOPORTE",
-      "sublabel": "ticket proactivo",
+      "label": "SOPORTE ABIERTO",
+      "sublabel": "estados en 3B",
       "width": 140,
       "yOffset": -40
     },
@@ -755,9 +765,9 @@
       "col": 4,
       "type": "security",
       "icon": "person",
-      "label": "Contacto urgente",
-      "sublabel": "alerta Telegram",
-      "tag": "emergencia",
+      "label": "EVENTO CRÍTICO",
+      "sublabel": "Telegram URGENTE",
+      "tag": "contacto rápido",
       "width": 140
     }
   ],
@@ -843,13 +853,18 @@
     {
       "from": "p_monitor",
       "to": "q_critico",
-      "label": "falla",
       "variant": "emphasis"
     },
     {
       "from": "q_critico",
+      "to": "a_temp",
+      "label": "temporal",
+      "variant": "dashed"
+    },
+    {
+      "from": "q_critico",
       "to": "a_normal",
-      "label": "NO",
+      "label": "persistente",
       "variant": "default"
     },
     {
@@ -865,7 +880,7 @@
     {
       "from": "q_critico",
       "to": "t_aviso",
-      "label": "informa",
+      "label": "si corresponde",
       "variant": "emphasis"
     },
     {
@@ -876,7 +891,7 @@
     {
       "from": "q_critico",
       "to": "h_urgente",
-      "label": "SÍ",
+      "label": "crítico",
       "variant": "security",
       "role": "error"
     }
@@ -886,7 +901,7 @@
       "dot": "cyan",
       "title": "Onboarding automático",
       "items": [
-        "Bienvenida, tutorial de plataforma y mapa",
+        "Bienvenida, tutorial de plataforma y mapa (disponible desde CUENTA CREADA)",
         "Ver el vehículo, recorridos, geocercas y alertas",
         "Funciones remotas · video o experiencia guiada"
       ]
@@ -897,16 +912,36 @@
       "items": [
         "Ubicación en vivo · historial de recorridos",
         "Geocercas · alertas · estado del vehículo",
-        "Sirena · *corte de motor solo si está validado técnicamente"
+        "Sirena · corte de motor solo si está validado técnicamente"
       ]
     },
     {
       "dot": "rose",
-      "title": "Postventa = retención",
+      "title": "GPS offline: 3 niveles",
       "items": [
-        "Bot primero; humano solo si no se resuelve",
-        "Fallas detectadas antes de que el cliente reclame",
-        "Crítico → alerta prioritaria y contacto rápido"
+        "TEMPORAL: registrar, esperar recuperación, aviso solo si corresponde",
+        "PERSISTENTE: ticket automático + aviso al cliente + revisión de soporte",
+        "CRÍTICO: prioridad alta, Telegram URGENTE, soporte humano y contacto rápido",
+        "Umbrales de tiempo: POR DEFINIR"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Qué medir",
+      "items": [
+        "% resuelto por el bot sin humano",
+        "Tickets abiertos · tiempo de resolución",
+        "Eventos GPS offline por nivel · incidentes críticos"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Cómo leer",
+      "items": [
+        "Línea verde continua = CAMINO PRINCIPAL",
+        "Línea roja punteada = EXCEPCIÓN · gris punteada = camino secundario",
+        "Caja naranja = AUTOMATIZACIÓN · caja amarilla 👤 = INTERVENCIÓN HUMANA",
+        "◆ = decisión · etiqueta POR DEFINIR = decisión de negocio pendiente"
       ]
     }
   ]

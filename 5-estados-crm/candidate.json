@@ -2,7 +2,7 @@
   "schema_version": 2,
   "diagram_type": "lifecycle",
   "meta": {
-    "title": "Alpha · Estados del CRM y alertas internas",
+    "title": "Alpha · Estados del CRM (principal, subestado, evento) y alertas",
     "locale": "es",
     "translations": {
       "page.title": "{title} · Diagrama",
@@ -450,19 +450,16 @@
       "mode": "auto",
       "entries": {
         "start": {
-          "label": "Entrada"
+          "label": "Entrada (principal)"
         },
         "active": {
-          "label": "En curso"
+          "label": "Estado principal"
         },
         "waiting": {
-          "label": "En espera"
+          "label": "Subestado"
         },
-        "decision": {
-          "label": "Punto de decisión"
-        },
-        "success": {
-          "label": "Logro"
+        "neutral": {
+          "label": "Evento (registro con fecha)"
         },
         "failure": {
           "label": "Excepción / salida"
@@ -473,15 +470,15 @@
   "lanes": [
     {
       "id": "main",
-      "label": "Venta online (Tramo 1)"
+      "label": "Venta online"
     },
     {
-      "id": "servicio",
-      "label": "Instalación (Tramo 2)"
+      "id": "inst",
+      "label": "Instalación y activación"
     },
     {
-      "id": "postventa",
-      "label": "Postventa y cobro (Tramos 3–4)"
+      "id": "post",
+      "label": "Postventa y cobro"
     },
     {
       "id": "terminal",
@@ -493,114 +490,141 @@
       "id": "lead",
       "type": "start",
       "label": "LEAD",
-      "sublabel": "llega desde anuncios",
+      "sublabel": "principal",
       "lane": "main",
       "col": 0,
       "step": "01"
     },
     {
       "id": "interesado",
-      "type": "active",
+      "type": "waiting",
       "label": "INTERESADO",
-      "sublabel": "explora la landing",
+      "sublabel": "subestado de LEAD",
       "lane": "main",
       "col": 1,
       "step": "02"
     },
     {
       "id": "checkout",
-      "type": "decision",
+      "type": "waiting",
       "label": "CHECKOUT INICIADO",
-      "sublabel": "¿completa?",
+      "sublabel": "subestado de LEAD",
       "lane": "main",
       "col": 2,
       "step": "03"
     },
     {
+      "id": "abandonado",
+      "type": "failure",
+      "label": "CHECKOUT ABANDONADO",
+      "sublabel": "subestado medible",
+      "lane": "main",
+      "col": 2,
+      "yOffset": 104
+    },
+    {
       "id": "pagado",
-      "type": "success",
+      "type": "active",
       "label": "PAGADO",
-      "sublabel": "Webpay / tarjeta",
+      "sublabel": "principal",
       "lane": "main",
       "col": 3,
       "step": "04"
     },
     {
-      "id": "agendada",
-      "type": "waiting",
-      "label": "INSTALACIÓN AGENDADA",
-      "sublabel": "técnico asignado",
+      "id": "cuenta",
+      "type": "neutral",
+      "label": "CUENTA CREADA",
+      "sublabel": "evento",
       "lane": "main",
       "col": 4,
       "step": "05"
     },
     {
-      "id": "camino",
+      "id": "agendada",
       "type": "active",
-      "label": "TÉCNICO EN CAMINO",
-      "sublabel": "WhatsApp al cliente",
-      "lane": "servicio",
+      "label": "INSTALACIÓN AGENDADA",
+      "sublabel": "principal",
+      "lane": "inst",
       "col": 4,
       "step": "06"
     },
     {
-      "id": "eninst",
-      "type": "active",
-      "label": "EN INSTALACIÓN",
-      "sublabel": "check-in hecho",
-      "lane": "servicio",
+      "id": "camino",
+      "type": "waiting",
+      "label": "TÉCNICO EN CAMINO",
+      "sublabel": "subestado",
+      "lane": "inst",
       "col": 3,
       "step": "07"
     },
     {
-      "id": "instalado",
-      "type": "success",
-      "label": "INSTALADO",
-      "sublabel": "check-out + firma",
-      "lane": "servicio",
+      "id": "eninst",
+      "type": "waiting",
+      "label": "EN INSTALACIÓN",
+      "sublabel": "subestado",
+      "lane": "inst",
       "col": 2,
       "step": "08"
     },
     {
-      "id": "activo",
-      "type": "success",
-      "label": "ACTIVO",
-      "sublabel": "GPS en su cuenta",
-      "lane": "servicio",
+      "id": "incid",
+      "type": "failure",
+      "label": "INCIDENCIA INSTALACIÓN",
+      "sublabel": "subestado",
+      "lane": "inst",
+      "col": 2,
+      "yOffset": 104
+    },
+    {
+      "id": "instalado",
+      "type": "neutral",
+      "label": "INSTALADO",
+      "sublabel": "evento",
+      "lane": "inst",
       "col": 1,
       "step": "09"
     },
     {
+      "id": "activo",
+      "type": "active",
+      "label": "ACTIVO",
+      "sublabel": "principal · vehículo activo",
+      "lane": "inst",
+      "col": 0,
+      "step": "10"
+    },
+    {
       "id": "soporte",
       "type": "waiting",
-      "label": "SOPORTE",
-      "sublabel": "ticket abierto",
-      "lane": "postventa",
+      "label": "SOPORTE ABIERTO",
+      "sublabel": "subestado de ACTIVO",
+      "lane": "post",
       "col": 0
     },
     {
       "id": "pendiente",
       "type": "waiting",
       "label": "PAGO PENDIENTE",
-      "sublabel": "gracia ~15 días",
-      "lane": "postventa",
-      "col": 2
+      "sublabel": "subestado de ACTIVO",
+      "lane": "post",
+      "col": 1
     },
     {
       "id": "suspendido",
       "type": "failure",
       "label": "SUSPENDIDO",
-      "sublabel": "aviso previo enviado",
-      "lane": "postventa",
-      "col": 3
+      "sublabel": "principal",
+      "lane": "post",
+      "col": 2
     },
     {
       "id": "cancelado",
       "type": "failure",
       "label": "CANCELADO",
-      "sublabel": "regla por definir",
+      "sublabel": "principal · final",
       "lane": "terminal",
-      "col": 3
+      "col": 2
     }
   ],
   "transitions": [
@@ -620,15 +644,35 @@
       "label": "paga"
     },
     {
+      "from": "checkout",
+      "to": "abandonado",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "from": "abandonado",
+      "to": "lead",
+      "label": "recuperable",
+      "variant": "dashed",
+      "fromSide": "left",
+      "toSide": "bottom"
+    },
+    {
       "from": "pagado",
+      "to": "cuenta",
+      "label": "acceso"
+    },
+    {
+      "from": "cuenta",
       "to": "agendada",
-      "label": "agenda"
+      "label": "agenda",
+      "labelDy": 25
     },
     {
       "from": "agendada",
       "to": "camino",
-      "label": "sale",
-      "labelDy": 25
+      "label": "sale"
     },
     {
       "from": "camino",
@@ -638,18 +682,27 @@
     {
       "from": "eninst",
       "to": "instalado",
-      "label": "check-out"
+      "label": "todo OK"
+    },
+    {
+      "from": "eninst",
+      "to": "incid",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "from": "incid",
+      "to": "agendada",
+      "label": "2ª visita",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "bottom"
     },
     {
       "from": "instalado",
       "to": "activo",
-      "label": "activa"
-    },
-    {
-      "from": "checkout",
-      "to": "lead",
-      "label": "abandona",
-      "variant": "dashed"
+      "label": "IMEI vinculado"
     },
     {
       "from": "activo",
@@ -678,33 +731,59 @@
     {
       "from": "pendiente",
       "to": "suspendido",
-      "label": "~15 días",
+      "label": "~15 días*",
       "variant": "security"
     },
     {
       "from": "suspendido",
+      "to": "activo",
+      "label": "reactiva",
+      "variant": "emphasis"
+    },
+    {
+      "from": "suspendido",
       "to": "cancelado",
-      "variant": "security"
+      "label": "POR DEFINIR",
+      "variant": "security",
+      "labelDy": 25
     }
   ],
   "cards": [
     {
-      "dot": "rose",
-      "title": "Bot de Telegram (alertas internas)",
+      "dot": "cyan",
+      "title": "Propuesta: estados principales (6)",
       "items": [
-        "Nueva venta · nueva instalación · instalación próxima",
-        "Problema técnico · GPS offline · ticket urgente",
-        "Pago fallido · emergencia"
+        "LEAD · PAGADO · INSTALACIÓN AGENDADA · ACTIVO · SUSPENDIDO · CANCELADO",
+        "Son las etapas del pipeline del CRM",
+        "Propuesta a validar con el equipo"
       ]
     },
     {
-      "dot": "cyan",
-      "title": "Principios del proceso",
+      "dot": "amber",
+      "title": "Subestados y eventos",
       "items": [
-        "Automatización primero · autoservicio · baja fricción",
-        "Intervención humana solo cuando es necesaria",
-        "Experiencia premium · confianza · tecnología",
-        "Soporte postventa · retención"
+        "Subestados: INTERESADO, CHECKOUT INICIADO, CHECKOUT ABANDONADO, TÉCNICO EN CAMINO, EN INSTALACIÓN, INCIDENCIA INSTALACIÓN, SOPORTE ABIERTO, PAGO PENDIENTE",
+        "Eventos (fecha y hora, no etapa): CUENTA CREADA, INSTALADO",
+        "Soporte detallado: ABIERTO → EN REVISIÓN → ESPERANDO CLIENTE / VISITA TÉCNICA → RESUELTO (Tramo 3B)"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Bot de Telegram por nivel",
+      "items": [
+        "INFO: nueva venta · instalación agendada",
+        "ATENCIÓN: instalación próxima · pago fallido · GPS offline persistente",
+        "URGENTE: instalación crítica · ticket urgente · incidente de seguridad · emergencia",
+        "Solo URGENTE notifica de inmediato; INFO puede ir en resumen para evitar exceso"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "POR DEFINIR",
+      "items": [
+        "*Plazo de gracia ~15 días: REFERENCIAL",
+        "Regla para pasar de SUSPENDIDO a CANCELADO",
+        "CANCELACIÓN SOLICITADA (antes de instalar): subestado o directo a CANCELADO"
       ]
     }
   ]

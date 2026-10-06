@@ -5,10 +5,17 @@ Cliente · Touchpoint / Interfaz · Plataforma Alpha · Automatizaciones · CRM 
 
 Abre `index.html` para ver la página de inicio con los 5 diagramas interactivos:
 
-1. Tramo 1 — Adquisición y compra (etapas 1–5)
-2. Tramo 2 — Agenda, instalación y activación (etapas 6–12)
-3. Tramo 3 — Onboarding, uso y soporte (etapas 13–16)
-4. Tramo 4 — Cobro, retención y crecimiento (etapas 17–20)
-5. Estados del CRM y alertas internas (bot de Telegram)
+- Tramo 1 — Adquisición y compra (etapas 1–5)
+- Tramo 2 — Agenda, instalación y activación (etapas 6–12)
+  - 2B — Excepciones de agenda (sin cupo, reprogramación, cancelación previa)
+  - 2C — Excepciones en la visita (no-show técnico/cliente, instalación fallida)
+- Tramo 3 — Onboarding, uso y soporte (etapas 13–16)
+  - 3B — GPS offline (temporal / persistente / crítico) y estados de ticket
+- Tramo 4 — Cobro, retención y crecimiento (etapas 17–20)
+  - 4B — Postventa: cancelación y retención, cambio de vehículo, segundo vehículo
+- Estados del CRM (principal / subestado / evento) y alertas de Telegram por nivel
 
-Diagramas generados con [Archify](https://github.com/tt-a1i/archify). Los archivos `t1.mjs`–`t5.mjs` generan cada `candidate.json`.
+La página de inicio incluye además la leyenda, las métricas a medir y todas las decisiones marcadas como POR DEFINIR.
+EMPRESA / FLOTA queda fuera de alcance: se desarrollará aparte como un customer journey B2B.
+
+Diagramas generados con [Archify](https://github.com/tt-a1i/archify). Los archivos `t*.mjs` generan cada `candidate.json`.

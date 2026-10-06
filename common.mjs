@@ -28,6 +28,19 @@ export const legend = {
   },
 };
 
+export const PD = "POR DEFINIR";
+
+export const howto = {
+  dot: "slate",
+  title: "Cómo leer",
+  items: [
+    "Línea verde continua = CAMINO PRINCIPAL",
+    "Línea roja punteada = EXCEPCIÓN · gris punteada = camino secundario",
+    "Caja naranja = AUTOMATIZACIÓN · caja amarilla 👤 = INTERVENCIÓN HUMANA",
+    "◆ = decisión · etiqueta POR DEFINIR = decisión de negocio pendiente",
+  ],
+};
+
 export function workflow(slug, title, body) {
   const dir = new URL(`./${slug}/`, import.meta.url);
   mkdirSync(dir, { recursive: true });
@@ -44,6 +57,7 @@ export function workflow(slug, title, body) {
     },
     lanes,
     ...body,
+    cards: [...(body.cards || []), howto],
   };
   writeFileSync(new URL("candidate.json", dir), JSON.stringify(doc, null, 2));
 }

@@ -1,0 +1,63 @@
+import { workflow, PD } from "./common.mjs";
+
+const W = 140;
+workflow("3b-soporte-offline", "Alpha · Tramo 3B — GPS offline y ciclo de un ticket de soporte", {
+  phases: [
+    { id: "h1", label: "Clasificación automática de GPS offline", fromCol: 0, toCol: 2, variant: "security" },
+    { id: "h2", label: "Estados de un ticket de soporte", fromCol: 3, toCol: 5, variant: "emphasis" },
+  ],
+  mainPath: ["p_off", "q_tipo", "a_pers", "s_abierto", "s_rev"],
+  nodes: [
+    { id: "k_info", lane: "cliente", col: 2, type: "external", icon: "person", label: "Entiende qué pasa", sublabel: "lenguaje simple", width: W },
+    { id: "t_info", lane: "touch", col: 2, type: "frontend", label: "Aviso informativo", sublabel: "solo si corresponde", width: W },
+    { id: "p_off", lane: "plataforma", col: 0, type: "backend", label: "GPS sin reportar", sublabel: "evento detectado", tag: "24/7", width: W },
+    { id: "q_tipo", lane: "plataforma", col: 1, type: "security", icon: "flag", label: "◆ ¿Qué nivel?", sublabel: "duración + contexto", tag: `umbrales ${PD}`, width: W },
+    { id: "a_temp", lane: "auto", col: 2, type: "messagebus", label: "OFFLINE TEMPORAL", sublabel: "registra y espera", width: W, yOffset: -46 },
+    { id: "a_pers", lane: "auto", col: 2, type: "messagebus", label: "OFFLINE PERSIST.", sublabel: "ticket + aviso", width: W, yOffset: 46 },
+    { id: "s_abierto", lane: "crm", col: 2, type: "database", label: "SOPORTE ABIERTO", width: W },
+    { id: "h_crit", lane: "humano", col: 1, type: "security", icon: "person", label: "EVENTO CRÍTICO", sublabel: "contacto rápido", tag: "Telegram URGENTE", width: W },
+
+    { id: "k_resp", lane: "cliente", col: 4, type: "external", icon: "person", label: "Responde", sublabel: "envía datos o fotos", width: W },
+    { id: "k_ok", lane: "cliente", col: 5, type: "external", icon: "person", label: "Confirma solución", sublabel: "y evalúa la atención", width: W },
+    { id: "t_pide", lane: "touch", col: 4, type: "frontend", label: "WhatsApp / email", sublabel: "pide información", width: W },
+    { id: "t_cierre", lane: "touch", col: 5, type: "frontend", label: "Aviso de cierre", sublabel: "+ encuesta corta", width: W },
+    { id: "a_pide", lane: "auto", col: 4, type: "messagebus", label: "Solicitud auto.", sublabel: "con recordatorio", width: W },
+    { id: "a_cierre", lane: "auto", col: 5, type: "messagebus", label: "Cierre automático", sublabel: "registra solución", width: W },
+    { id: "s_rev", lane: "crm", col: 3, type: "database", label: "EN REVISIÓN", width: W },
+    { id: "s_espera", lane: "crm", col: 4, type: "database", label: "ESPERANDO CLIENTE", width: W, yOffset: -46 },
+    { id: "s_visita", lane: "crm", col: 4, type: "database", label: "VISITA TÉCNICA", width: W, yOffset: 46 },
+    { id: "s_resuelto", lane: "crm", col: 5, type: "database", label: "RESUELTO", width: W, yOffset: -46 },
+    { id: "s_activo", lane: "crm", col: 5, type: "database", label: "ACTIVO", width: W, yOffset: 46 },
+    { id: "x_visita", lane: "tecnico", col: 4, type: "cloud", icon: "briefcase", label: "Visita técnica", sublabel: "revisa o reinstala", width: W },
+    { id: "h_revisa", lane: "humano", col: 3, type: "cloud", icon: "person", label: "Soporte revisa", sublabel: "diagnóstico remoto", width: W },
+  ],
+  edges: [
+    { from: "p_off", to: "q_tipo", variant: "emphasis" },
+    { from: "q_tipo", to: "a_temp", label: "temporal", variant: "dashed", fromSide: "right", toSide: "top" },
+    { from: "q_tipo", to: "a_pers", label: "persistente", variant: "emphasis", fromSide: "right", toSide: "left" },
+    { from: "q_tipo", to: "h_crit", label: "crítico", variant: "security", role: "error", fromSide: "bottom", toSide: "top" },
+    { from: "a_temp", to: "t_info", variant: "dashed" },
+    { from: "t_info", to: "k_info", variant: "dashed" },
+    { from: "a_pers", to: "s_abierto", variant: "emphasis" },
+
+    { from: "s_abierto", to: "s_rev", variant: "emphasis" },
+    { from: "h_revisa", to: "s_rev", label: "toma" },
+    { from: "s_rev", to: "s_espera", label: "falta info", variant: "dashed" },
+    { from: "s_rev", to: "s_visita", label: "requiere visita", variant: "dashed" },
+    { from: "s_espera", to: "a_pide" },
+    { from: "a_pide", to: "t_pide" },
+    { from: "t_pide", to: "k_resp", variant: "dashed" },
+    { from: "s_visita", to: "x_visita" },
+    { from: "s_espera", to: "s_resuelto", variant: "emphasis" },
+    { from: "s_visita", to: "s_resuelto", variant: "emphasis" },
+    { from: "s_resuelto", to: "s_activo", variant: "emphasis" },
+    { from: "s_resuelto", to: "a_cierre" },
+    { from: "a_cierre", to: "t_cierre" },
+    { from: "t_cierre", to: "k_ok", variant: "dashed" },
+  ],
+  cards: [
+    { dot: "rose", title: "Ejemplos por nivel", items: ["TEMPORAL: pérdida momentánea de señal, estacionamiento subterráneo, mala cobertura", "PERSISTENTE: el equipo no reporta durante un período relevante", "CRÍTICO: señales de riesgo, desconexión de alimentación, manipulación o evento de seguridad validado"] },
+    { dot: "violet", title: "Trazabilidad simple", items: ["SOPORTE ABIERTO → EN REVISIÓN → ESPERANDO CLIENTE o VISITA TÉCNICA → RESUELTO → ACTIVO", "En el CRM principal se ven como subestados del cliente ACTIVO", "Solo los tickets críticos generan alerta URGENTE"] },
+    { dot: "amber", title: "POR DEFINIR", items: ["Minutos/horas que separan TEMPORAL de PERSISTENTE", "Qué combinación de señales se considera CRÍTICA", "Tiempos de respuesta comprometidos (SLA) por nivel"] },
+  ],
+});

@@ -1,4 +1,4 @@
-import { workflow } from "./common.mjs";
+import { workflow, PD } from "./common.mjs";
 
 const W = 140;
 workflow("3-uso-soporte", "Alpha · Tramo 3 — Onboarding, uso y soporte (etapas 13–16)", {
@@ -24,21 +24,22 @@ workflow("3-uso-soporte", "Alpha · Tramo 3 — Onboarding, uso y soporte (etapa
     { id: "p_funciones", lane: "plataforma", col: 1, type: "backend", label: "Funciones", sublabel: "geocercas · sirena · corte*", width: W },
     { id: "p_kb", lane: "plataforma", col: 2, type: "backend", label: "Base de conocimiento", sublabel: "FAQ · guías · soluciones", width: W },
     { id: "q_bot", lane: "plataforma", col: 3, type: "security", icon: "flag", label: "◆ ¿Lo resolvió?", sublabel: "problema resuelto por bot", width: W },
-    { id: "p_monitor", lane: "plataforma", col: 4, type: "backend", label: "Monitoreo de GPS", sublabel: "offline · sin reportar", tag: "24/7", width: W },
-    { id: "q_critico", lane: "plataforma", col: 5, type: "security", icon: "flag", label: "◆ ¿Es crítico?", sublabel: "incidente / emergencia", width: W },
+    { id: "p_monitor", lane: "plataforma", col: 4, type: "backend", label: "GPS sin reportar", sublabel: "monitoreo 24/7", tag: "detalle en 3B", width: W },
+    { id: "q_critico", lane: "plataforma", col: 5, type: "security", icon: "flag", label: "◆ ¿Qué tipo?", sublabel: "duración + contexto", tag: `umbrales ${PD}`, width: W },
 
     { id: "a_onb", lane: "auto", col: 0, type: "messagebus", label: "Secuencia onboarding", sublabel: "mapa · geocercas · alertas", width: W },
     { id: "a_ticket", lane: "auto", col: 3, type: "messagebus", label: "Ticket automático", sublabel: "con contexto del bot", width: W },
-    { id: "a_normal", lane: "auto", col: 5, type: "messagebus", label: "Ticket normal", sublabel: "cola de soporte", width: W },
+    { id: "a_temp", lane: "auto", col: 4, type: "messagebus", label: "OFFLINE TEMPORAL", sublabel: "registra y espera", width: W },
+    { id: "a_normal", lane: "auto", col: 5, type: "messagebus", label: "OFFLINE PERSIST.", sublabel: "ticket + aviso", width: W },
 
-    { id: "s_soporte", lane: "crm", col: 3, type: "database", label: "SOPORTE", width: W },
-    { id: "s_soporte2", lane: "crm", col: 5, type: "database", label: "SOPORTE", sublabel: "ticket proactivo", width: W, yOffset: -40 },
+    { id: "s_soporte", lane: "crm", col: 3, type: "database", label: "SOPORTE ABIERTO", width: W },
+    { id: "s_soporte2", lane: "crm", col: 5, type: "database", label: "SOPORTE ABIERTO", sublabel: "estados en 3B", width: W, yOffset: -40 },
     { id: "s_activo2", lane: "crm", col: 5, type: "database", label: "ACTIVO", sublabel: "al resolverse", width: W, yOffset: 40 },
 
     { id: "x_visita", lane: "tecnico", col: 3, type: "cloud", icon: "briefcase", label: "Visita técnica", sublabel: "solo si se requiere", width: W },
 
     { id: "h_ticket", lane: "humano", col: 3, type: "cloud", icon: "person", label: "Ejecutivo resuelve", sublabel: "soporte complejo", width: W },
-    { id: "h_urgente", lane: "humano", col: 4, type: "security", icon: "person", label: "Contacto urgente", sublabel: "alerta Telegram", tag: "emergencia", width: W },
+    { id: "h_urgente", lane: "humano", col: 4, type: "security", icon: "person", label: "EVENTO CRÍTICO", sublabel: "Telegram URGENTE", tag: "contacto rápido", width: W },
   ],
   edges: [
     { from: "a_onb", to: "t_onb", variant: "emphasis" },
@@ -56,17 +57,19 @@ workflow("3-uso-soporte", "Alpha · Tramo 3 — Onboarding, uso y soporte (etapa
     { from: "a_ticket", to: "s_soporte" },
     { from: "a_ticket", to: "h_ticket", variant: "security", role: "error" },
     { from: "h_ticket", to: "x_visita", variant: "dashed" },
-    { from: "p_monitor", to: "q_critico", label: "falla", variant: "emphasis" },
-    { from: "q_critico", to: "a_normal", label: "NO", variant: "default" },
+    { from: "p_monitor", to: "q_critico", variant: "emphasis" },
+    { from: "q_critico", to: "a_temp", label: "temporal", variant: "dashed" },
+    { from: "q_critico", to: "a_normal", label: "persistente", variant: "default" },
     { from: "a_normal", to: "s_soporte2" },
     { from: "s_soporte2", to: "s_activo2", label: "resuelto", variant: "dashed" },
-    { from: "q_critico", to: "t_aviso", label: "informa", variant: "emphasis" },
+    { from: "q_critico", to: "t_aviso", label: "si corresponde", variant: "emphasis" },
     { from: "t_aviso", to: "k_informado", variant: "dashed" },
-    { from: "q_critico", to: "h_urgente", label: "SÍ", variant: "security", role: "error" },
+    { from: "q_critico", to: "h_urgente", label: "crítico", variant: "security", role: "error" },
   ],
   cards: [
-    { dot: "cyan", title: "Onboarding automático", items: ["Bienvenida, tutorial de plataforma y mapa", "Ver el vehículo, recorridos, geocercas y alertas", "Funciones remotas · video o experiencia guiada"] },
-    { dot: "violet", title: "Funciones previstas", items: ["Ubicación en vivo · historial de recorridos", "Geocercas · alertas · estado del vehículo", "Sirena · *corte de motor solo si está validado técnicamente"] },
-    { dot: "rose", title: "Postventa = retención", items: ["Bot primero; humano solo si no se resuelve", "Fallas detectadas antes de que el cliente reclame", "Crítico → alerta prioritaria y contacto rápido"] },
+    { dot: "cyan", title: "Onboarding automático", items: ["Bienvenida, tutorial de plataforma y mapa (disponible desde CUENTA CREADA)", "Ver el vehículo, recorridos, geocercas y alertas", "Funciones remotas · video o experiencia guiada"] },
+    { dot: "violet", title: "Funciones previstas", items: ["Ubicación en vivo · historial de recorridos", "Geocercas · alertas · estado del vehículo", "Sirena · corte de motor solo si está validado técnicamente"] },
+    { dot: "rose", title: "GPS offline: 3 niveles", items: ["TEMPORAL: registrar, esperar recuperación, aviso solo si corresponde", "PERSISTENTE: ticket automático + aviso al cliente + revisión de soporte", "CRÍTICO: prioridad alta, Telegram URGENTE, soporte humano y contacto rápido", "Umbrales de tiempo: POR DEFINIR"] },
+    { dot: "emerald", title: "Qué medir", items: ["% resuelto por el bot sin humano", "Tickets abiertos · tiempo de resolución", "Eventos GPS offline por nivel · incidentes críticos"] },
   ],
 });

@@ -15,38 +15,53 @@
   main { max-width: 1120px; margin: 0 auto; padding: 48px 16px 64px; }
   .eyebrow { color: var(--cyan); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 600; }
   h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin: 8px 0 12px; }
-  .lead { color: var(--muted); max-width: 760px; margin: 0; }
-  h2 { font-size: 18px; margin: 44px 0 14px; }
+  .lead { color: var(--muted); max-width: 780px; margin: 0; }
+  .lead b { color: var(--text); }
+  h2 { font-size: 18px; margin: 44px 0 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 6px 12px; font-size: 13px; }
   .chip b { color: var(--cyan); font-weight: 600; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
   a.card { display: block; text-decoration: none; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; transition: border-color .15s, transform .15s; }
+  a.card.b { border-style: dashed; }
   a.card:hover { border-color: var(--cyan); transform: translateY(-2px); }
   .card .num { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--cyan); }
+  .card.b .num { color: var(--rose); }
   .card h3 { margin: 6px 0 6px; font-size: 17px; }
   .card p { margin: 0; color: var(--muted); font-size: 14px; }
   .card .go { margin-top: 12px; font-size: 13px; color: var(--cyan); }
   .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px 16px; }
   .legend div { display: flex; align-items: center; gap: 10px; font-size: 14px; }
   .sw { width: 22px; height: 14px; border-radius: 4px; border: 1.5px solid; flex: none; }
+  .ln { width: 30px; height: 0; border-top: 2.5px solid; flex: none; }
+  .pd { display: inline-block; font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; color: #ffd58a; border: 1px dashed var(--amber); background: #2b1d08; border-radius: 6px; padding: 2px 7px; }
+  .sub { display: block; margin-top: 8px; font-size: 12.5px; color: var(--muted); }
   .states { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
   .states span { padding: 6px 10px; border-radius: 8px; border: 1px solid #5b4bb3; background: #1a1538; color: #d9d0ff; }
   .states span.x { border-color: #9f3a4d; background: #2a1219; color: #ffc7d1; }
-  .states i { color: var(--muted); font-style: normal; }
+  .states span.e { border-color: #475569; background: #121a2a; color: #cbd5e1; border-style: dashed; }
   .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
   .box { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
   .box h3 { margin: 0 0 10px; font-size: 16px; }
   .box ul { margin: 0; padding-left: 18px; color: var(--muted); }
   .box li { margin: 3px 0; }
+  .box li b { color: var(--text); }
+  .tag { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; padding: 2px 7px; border-radius: 6px; margin-right: 8px; }
+  .t-info { background: #10263a; color: #7cc4ff; } .t-aten { background: #33240b; color: #ffcf7a; } .t-urg { background: #3a1219; color: #ff9aab; }
+  ul.plain { list-style: none; padding: 0; }
+  ul.plain li { margin: 8px 0; }
+  .qa { counter-reset: q; list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 8px 16px; }
+  .qa li { counter-increment: q; font-size: 14px; color: var(--muted); }
+  .qa li::before { content: counter(q) ". "; color: var(--cyan); font-weight: 700; }
+  .qa b { color: var(--text); font-weight: 600; }
   .note { color: var(--muted); font-size: 13px; margin-top: 40px; border-top: 1px solid var(--line); padding-top: 16px; }
 </style>
 </head>
 <body>
 <main>
-  <div class="eyebrow">Alpha Tecnología · Lanzamiento B2C</div>
+  <div class="eyebrow">Alpha Tecnología · Lanzamiento B2C · Versión 2</div>
   <h1>Customer Journey + Service Blueprint</h1>
-  <p class="lead">Recorrido completo de un cliente particular, desde que ve un anuncio hasta que suma más vehículos. Se lee de izquierda a derecha, en 7 franjas: Cliente, Touchpoint / Interfaz, Plataforma Alpha, Automatizaciones, CRM, Técnico freelance y Soporte humano. Las personas del equipo intervienen solo en excepciones, soporte complejo o emergencias.</p>
+  <p class="lead">Recorrido completo de un cliente particular, desde que ve un anuncio hasta que suma más vehículos. Se lee de izquierda a derecha, en 7 franjas: Cliente, Touchpoint / Interfaz, Plataforma Alpha, Automatizaciones, CRM, Técnico freelance y Soporte humano. Las personas del equipo intervienen solo en excepciones, soporte complejo o emergencias. <b>Versión 2:</b> suma excepciones operativas, estados CRM clasificados y métricas.</p>
 
   <h2>Principios del proceso</h2>
   <div class="chips">
@@ -62,93 +77,133 @@
   </div>
 
   <h2>Diagramas (ábrelos en orden)</h2>
+  <p class="lead" style="margin-bottom:14px">Los tramos 1–4 muestran el camino principal. Los diagramas <b>B/C</b> (borde punteado) detallan qué pasa cuando algo falla o cambia.</p>
   <div class="grid">
     <a class="card" href="1-adquisicion/1-adquisicion.html">
       <div class="num">TRAMO 1 · ETAPAS 1–5</div>
       <h3>Adquisición y compra</h3>
-      <p>Redes y anuncios → landing → plan → checkout → pago Webpay/tarjeta. Remarketing si abandona y avisos si el pago falla.</p>
+      <p>Redes → landing → plan → checkout → pago. CHECKOUT ABANDONADO medible y recuperación automática del lead.</p>
       <div class="go">Abrir diagrama →</div>
     </a>
     <a class="card" href="2-instalacion/2-instalacion.html">
       <div class="num">TRAMO 2 · ETAPAS 6–12</div>
       <h3>Agenda, instalación y activación</h3>
-      <p>Disponibilidad de técnicos → agenda automática → recordatorios → check-in → instalación y pruebas → check-out → GPS activo.</p>
+      <p>Agenda automática, recordatorios, check-in, pruebas y check-out. CUENTA CREADA ≠ VEHÍCULO ACTIVO.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card b" href="2b-excepciones-agenda/2b-excepciones-agenda.html">
+      <div class="num">TRAMO 2B · EXCEPCIONES</div>
+      <h3>Excepciones de agenda</h3>
+      <p>Sin cupo compatible (alternativas automáticas antes de un humano), reprogramación y cancelación previa a la instalación.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card b" href="2c-excepciones-visita/2c-excepciones-visita.html">
+      <div class="num">TRAMO 2C · EXCEPCIONES</div>
+      <h3>Excepciones en la visita</h3>
+      <p>Técnico no disponible (reasignación automática), cliente no disponible (no-show) e instalación fallida con INCIDENCIA.</p>
       <div class="go">Abrir diagrama →</div>
     </a>
     <a class="card" href="3-uso-soporte/3-uso-soporte.html">
       <div class="num">TRAMO 3 · ETAPAS 13–16</div>
       <h3>Onboarding, uso y soporte</h3>
-      <p>Onboarding por WhatsApp y email, uso de la plataforma, bot de soporte con ticket automático y monitoreo proactivo de incidentes normales y críticos.</p>
+      <p>Onboarding, uso, bot de soporte con ticket automático y monitoreo proactivo con GPS offline en 3 niveles.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card b" href="3b-soporte-offline/3b-soporte-offline.html">
+      <div class="num">TRAMO 3B · EXCEPCIONES</div>
+      <h3>GPS offline y estados de ticket</h3>
+      <p>Offline temporal, persistente o crítico. Ticket: ABIERTO → EN REVISIÓN → ESPERANDO CLIENTE / VISITA → RESUELTO.</p>
       <div class="go">Abrir diagrama →</div>
     </a>
     <a class="card" href="4-cobro-crecimiento/4-cobro-crecimiento.html">
       <div class="num">TRAMO 4 · ETAPAS 17–20</div>
       <h3>Cobro, retención y crecimiento</h3>
-      <p>Cobro recurrente con período de gracia y suspensión, mensajes de los días 7 y 30, venta cruzada multi-vehículo y bifurcación futura a empresa o flota.</p>
+      <p>Cobro paso a paso, gracia referencial, suspensión y reactivación automática, retención y bifurcación a Empresa / Flota.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card b" href="4b-postventa/4b-postventa.html">
+      <div class="num">TRAMO 4B · EXCEPCIONES</div>
+      <h3>Postventa</h3>
+      <p>Cancelación con retención no agresiva, cambio de vehículo y segundo vehículo en la misma cuenta.</p>
       <div class="go">Abrir diagrama →</div>
     </a>
     <a class="card" href="5-estados-crm/5-estados-crm.html">
       <div class="num">VISTA GENERAL</div>
-      <h3>Estados del CRM + alertas Telegram</h3>
-      <p>Los 13 estados del cliente y cómo pasa de uno a otro, más las alertas internas del bot de Telegram.</p>
+      <h3>Estados del CRM + Telegram</h3>
+      <p>16 estados clasificados como principal, subestado o evento, y las alertas de Telegram por nivel.</p>
       <div class="go">Abrir diagrama →</div>
     </a>
   </div>
 
-  <h2>Cómo leer los colores</h2>
+  <h2>Cómo leer los diagramas</h2>
+  <div class="legend" style="margin-bottom:14px">
+    <div><span class="ln" style="border-color:var(--emerald)"></span><b>CAMINO PRINCIPAL</b></div>
+    <div><span class="ln" style="border-color:var(--rose);border-top-style:dashed"></span><b>EXCEPCIÓN</b></div>
+    <div><span class="sw" style="border-color:var(--amber);background:#3a2410"></span><b>AUTOMATIZACIÓN</b></div>
+    <div><span class="sw" style="border-color:#e2b04a"></span><b>INTERVENCIÓN HUMANA</b></div>
+    <div><span class="pd">POR DEFINIR</span></div>
+  </div>
   <div class="legend">
     <div><span class="sw" style="border-color:#94a3b8"></span>Acción del cliente</div>
-    <div><span class="sw" style="border-color:var(--cyan)"></span>Touchpoint / interfaz</div>
+    <div><span class="sw" style="border-color:var(--cyan)"></span>Touchpoint / interfaz (lo que ve el cliente)</div>
     <div><span class="sw" style="border-color:var(--emerald)"></span>Sistema / plataforma</div>
-    <div><span class="sw" style="border-color:var(--amber);background:#3a2410"></span>Automatización</div>
     <div><span class="sw" style="border-color:var(--violet)"></span>Estado del CRM</div>
-    <div><span class="sw" style="border-color:#e2b04a"></span>Acción humana (técnico / ejecutivo)</div>
     <div><span class="sw" style="border-color:var(--rose)"></span>Decisión ◆ / excepción</div>
-    <div><span class="sw" style="border-color:var(--rose);border-style:dashed"></span>Flecha roja punteada = camino de excepción</div>
+    <div><span class="ln" style="border-color:var(--slate);border-top-style:dashed"></span>Camino secundario</div>
   </div>
+  <p class="sub">Las decisiones se marcan con ◆ dentro de una caja roja (Archify no dibuja rombos). Lo pendiente aparece como etiqueta “POR DEFINIR” en la caja y en la tarjeta ámbar de cada diagrama.</p>
 
-  <h2>Estados del CRM</h2>
-  <div class="states">
-    <span>LEAD</span><i>→</i><span>INTERESADO</span><i>→</i><span>CHECKOUT INICIADO</span><i>→</i><span>PAGADO</span><i>→</i><span>INSTALACIÓN AGENDADA</span><i>→</i><span>TÉCNICO EN CAMINO</span><i>→</i><span>EN INSTALACIÓN</span><i>→</i><span>INSTALADO</span><i>→</i><span>ACTIVO</span>
-    <i>·</i><span>SOPORTE</span><span class="x">PAGO PENDIENTE</span><span class="x">SUSPENDIDO</span><span class="x">CANCELADO</span>
-  </div>
-
-  <h2>Detalles clave</h2>
+  <h2>Estados del CRM <span class="pd">PROPUESTA A VALIDAR</span></h2>
   <div class="two">
-    <div class="box">
-      <h3>Bot de Telegram (alertas internas)</h3>
-      <ul>
-        <li>Nueva venta · nueva instalación · instalación próxima</li>
-        <li>Problema técnico · GPS offline · ticket urgente</li>
-        <li>Pago fallido · emergencia</li>
-      </ul>
-    </div>
-    <div class="box">
-      <h3>Decisiones del recorrido</h3>
-      <ul>
-        <li>¿Completó checkout? · ¿Pago aprobado?</li>
-        <li>¿Hay disponibilidad técnica? · ¿Instalación exitosa?</li>
-        <li>¿Problema resuelto por bot? · ¿Incidente crítico?</li>
-        <li>¿Pago mensual exitoso? · ¿Tiene otro vehículo?</li>
-      </ul>
-    </div>
-    <div class="box">
-      <h3>Por definir</h3>
-      <ul>
-        <li>Nombres, precios y funciones de los planes (Starter · Pro · Max son provisionales)</li>
-        <li>Costo inicial de equipo + instalación y descuento anual</li>
-        <li>Regla exacta para pasar de SUSPENDIDO a CANCELADO</li>
-        <li>Corte de motor: solo cuando esté validado técnicamente</li>
-      </ul>
-    </div>
-    <div class="box">
-      <h3>Fuera de alcance (por ahora)</h3>
-      <ul>
-        <li>EMPRESA / FLOTA: requiere un customer journey B2B diferente</li>
-        <li>Proceso consultivo con un ejecutivo humano</li>
-      </ul>
-    </div>
+    <div class="box"><h3>Estado principal · 6</h3><div class="states"><span>LEAD</span><span>PAGADO</span><span>INSTALACIÓN AGENDADA</span><span>ACTIVO</span><span class="x">SUSPENDIDO</span><span class="x">CANCELADO</span></div><span class="sub">Las etapas del pipeline del CRM.</span></div>
+    <div class="box"><h3>Subestado · 8</h3><div class="states"><span>INTERESADO</span><span>CHECKOUT INICIADO</span><span class="x">CHECKOUT ABANDONADO</span><span>TÉCNICO EN CAMINO</span><span>EN INSTALACIÓN</span><span class="x">INCIDENCIA INSTALACIÓN</span><span>SOPORTE ABIERTO</span><span class="x">PAGO PENDIENTE</span></div><span class="sub">Detalle dentro de una etapa, para no sobrecargar el pipeline.</span></div>
+    <div class="box"><h3>Evento · 2</h3><div class="states"><span class="e">CUENTA CREADA</span><span class="e">INSTALADO</span></div><span class="sub">Se registran con fecha y hora; no son etapas.</span></div>
   </div>
+
+  <h2>Bot de Telegram por nivel</h2>
+  <div class="box">
+    <ul class="plain">
+      <li><span class="tag t-info">INFO</span>Nueva venta · instalación agendada <span style="color:var(--muted)">(puede ir en un resumen diario)</span></li>
+      <li><span class="tag t-aten">ATENCIÓN</span>Instalación próxima · pago fallido · GPS offline persistente · no-show</li>
+      <li><span class="tag t-urg">URGENTE</span>Instalación crítica · ticket urgente · incidente de seguridad · emergencia</li>
+    </ul>
+    <span class="sub">Objetivo: evitar el exceso de notificaciones. Solo URGENTE interrumpe de inmediato.</span>
+  </div>
+
+  <h2>Qué medir</h2>
+  <div class="two">
+    <div class="box"><h3>Adquisición</h3><ul><li>Visitas a la landing</li><li>Origen y campaña</li><li>CTR hacia planes</li></ul></div>
+    <div class="box"><h3>Conversión</h3><ul><li>Visita → plan → checkout → pago</li><li>Tasa de abandono de checkout</li><li>% de abandonos recuperados</li></ul></div>
+    <div class="box"><h3>Instalación</h3><ul><li>Pago → agenda · agenda → instalación</li><li>Tiempo hasta la instalación</li><li>Reprogramaciones · no-show · instalaciones fallidas</li></ul></div>
+    <div class="box"><h3>Operación</h3><ul><li>Tiempo de instalación</li><li>Incidencias</li><li>GPS offline por nivel · tickets</li></ul></div>
+    <div class="box"><h3>Retención</h3><ul><li>Clientes activos a 30 / 60 / 90 días</li><li>Churn</li><li>NPS o satisfacción · reseñas</li></ul></div>
+    <div class="box"><h3>Crecimiento</h3><ul><li>Segundo vehículo</li><li>Upsell</li><li>Referidos</li></ul></div>
+  </div>
+
+  <h2>Decisiones pendientes <span class="pd">POR DEFINIR</span></h2>
+  <div class="two">
+    <div class="box"><h3>Comercial</h3><ul><li>Nombres, precios y funciones de los planes (Starter · Pro · Max son provisorios)</li><li>Costo inicial de equipo + instalación · descuento anual</li><li>Existencia de un plan inferior</li><li>Descuento o beneficio por vehículo adicional</li></ul></div>
+    <div class="box"><h3>Políticas</h3><ul><li>Condiciones de reprogramación</li><li>Devolución, penalidad o retención al cancelar antes de instalar</li><li>Política del no-show del cliente</li><li>Condiciones y costo del cambio de vehículo</li></ul></div>
+    <div class="box"><h3>Cobro</h3><ul><li>Plazo de gracia exacto (hoy ~15 días, <b>referencial</b>)</li><li>Regla para pasar de SUSPENDIDO a CANCELADO</li></ul></div>
+    <div class="box"><h3>Operación y soporte</h3><ul><li>Umbrales de GPS offline temporal / persistente / crítico</li><li>Tiempos de respuesta (SLA) por nivel · plazo de 2ª visita</li><li>Mecánica de recuperación de carrito</li><li>Corte de motor: solo cuando esté validado técnicamente</li></ul></div>
+  </div>
+
+  <h2>Este blueprint responde</h2>
+  <ol class="qa">
+    <li><b>¿Qué hace el cliente?</b> Franja 1</li>
+    <li><b>¿Qué ve el cliente?</b> Franja 2</li>
+    <li><b>¿Qué hace el sistema?</b> Franja 3</li>
+    <li><b>¿Qué se automatiza?</b> Franja 4 (cajas naranjas)</li>
+    <li><b>¿Qué estado tiene el CRM?</b> Franja 5 + vista CRM</li>
+    <li><b>¿Qué hace el técnico?</b> Franja 6</li>
+    <li><b>¿Cuándo interviene una persona?</b> Franja 7 (solo excepciones)</li>
+    <li><b>¿Qué ocurre cuando algo falla?</b> Líneas rojas + diagramas 2B, 2C, 3B y 4B</li>
+    <li><b>¿Qué decisiones faltan?</b> Etiquetas POR DEFINIR + sección de arriba</li>
+    <li><b>¿Qué debemos medir?</b> Sección “Qué medir” + tarjeta en cada tramo</li>
+  </ol>
+
+  <h2>Fuera de alcance</h2>
+  <div class="box"><ul><li><b>EMPRESA / FLOTA</b>: se desarrollará aparte como un <b>CUSTOMER JOURNEY B2B</b>, con proceso consultivo y ejecutivo humano.</li></ul></div>
 
   <p class="note">Cada diagrama es interactivo: haz clic en una caja para destacar sus conexiones, usa “Ruta” para seguir un camino y “Exportar” para descargarlo como imagen (PNG/SVG) para presentaciones.</p>
 </main>

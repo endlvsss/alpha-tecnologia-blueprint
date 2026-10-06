@@ -507,26 +507,20 @@
   "phases": [
     {
       "id": "e17",
-      "label": "17 · Cobro recurrente",
+      "label": "17 · Cobro recurrente y morosidad",
       "fromCol": 0,
-      "toCol": 2,
+      "toCol": 3,
       "variant": "emphasis"
     },
     {
       "id": "e18",
       "label": "18 · Retención",
-      "fromCol": 3,
-      "toCol": 3
-    },
-    {
-      "id": "e19",
-      "label": "19 · Venta cruzada",
       "fromCol": 4,
       "toCol": 4
     },
     {
-      "id": "e20",
-      "label": "20 · Empresa (futuro)",
+      "id": "e19",
+      "label": "19–20 · Venta cruzada · Empresa",
       "fromCol": 5,
       "toCol": 5,
       "variant": "dashed"
@@ -536,8 +530,11 @@
     "p_cobro",
     "q_cobro",
     "a_dunning",
+    "a_intento",
     "q_gracia",
-    "s_suspendido"
+    "s_suspendido",
+    "q_susp",
+    "s_cancelado"
   ],
   "nodes": [
     {
@@ -563,7 +560,7 @@
     {
       "id": "k_opina",
       "lane": "cliente",
-      "col": 3,
+      "col": 4,
       "type": "external",
       "icon": "person",
       "label": "Opina y reseña",
@@ -573,21 +570,11 @@
     {
       "id": "k_suma",
       "lane": "cliente",
-      "col": 4,
+      "col": 5,
       "type": "external",
       "icon": "person",
       "label": "Suma vehículos",
-      "sublabel": "1 → 2 → familia",
-      "width": 140
-    },
-    {
-      "id": "k_pyme",
-      "lane": "cliente",
-      "col": 5,
-      "type": "security",
-      "icon": "briefcase",
-      "label": "EMPRESA / FLOTA",
-      "sublabel": "pequeña empresa",
+      "sublabel": "misma cuenta",
       "width": 140
     },
     {
@@ -595,14 +582,15 @@
       "lane": "touch",
       "col": 1,
       "type": "frontend",
-      "label": "Aviso + link de pago",
+      "label": "Avisos + link de pago",
       "sublabel": "WhatsApp · email",
+      "tag": "incluye aviso final",
       "width": 140
     },
     {
       "id": "t_msgs",
       "lane": "touch",
-      "col": 3,
+      "col": 4,
       "type": "frontend",
       "label": "Día 7 y día 30",
       "sublabel": "WhatsApp · email",
@@ -611,10 +599,11 @@
     {
       "id": "t_oferta",
       "lane": "touch",
-      "col": 4,
+      "col": 5,
       "type": "frontend",
-      "label": "Oferta 2º GPS",
-      "sublabel": "descuento progresivo",
+      "label": "Agregar vehículo",
+      "sublabel": "checkout simplificado",
+      "tag": "descuento POR DEFINIR",
       "width": 140
     },
     {
@@ -632,14 +621,14 @@
       "lane": "plataforma",
       "col": 2,
       "type": "backend",
-      "label": "Reactiva servicio",
+      "label": "Reactivación auto.",
       "sublabel": "vuelve a ACTIVO",
       "width": 140
     },
     {
       "id": "q_otro",
       "lane": "plataforma",
-      "col": 4,
+      "col": 5,
       "type": "security",
       "icon": "flag",
       "label": "◆ ¿Otro vehículo?",
@@ -660,10 +649,21 @@
       "lane": "auto",
       "col": 1,
       "type": "messagebus",
-      "label": "Aviso + 2º intento",
-      "sublabel": "recordatorios",
+      "label": "Primer aviso",
+      "sublabel": "pago no procesado",
       "tag": "excepción",
-      "width": 140
+      "width": 140,
+      "yOffset": -46
+    },
+    {
+      "id": "a_intento",
+      "lane": "auto",
+      "col": 1,
+      "type": "messagebus",
+      "label": "2º intento",
+      "sublabel": "+ recordatorios",
+      "width": 140,
+      "yOffset": 46
     },
     {
       "id": "q_gracia",
@@ -672,13 +672,23 @@
       "type": "security",
       "icon": "flag",
       "label": "◆ ¿Regularizó?",
-      "sublabel": "gracia ~15 días",
+      "sublabel": "en período de gracia",
+      "width": 140
+    },
+    {
+      "id": "q_susp",
+      "lane": "auto",
+      "col": 3,
+      "type": "security",
+      "icon": "flag",
+      "label": "◆ ¿Regulariza?",
+      "sublabel": "estando suspendido",
       "width": 140
     },
     {
       "id": "a_ret",
       "lane": "auto",
-      "col": 3,
+      "col": 4,
       "type": "messagebus",
       "label": "Customer success",
       "sublabel": "día 7 · día 30",
@@ -699,37 +709,38 @@
       "col": 1,
       "type": "database",
       "label": "PAGO PENDIENTE",
+      "sublabel": "gracia ~15 días",
+      "tag": "plazo REFERENCIAL",
       "width": 140
     },
     {
       "id": "s_suspendido",
       "lane": "crm",
-      "col": 2,
+      "col": 3,
       "type": "security",
       "label": "SUSPENDIDO",
-      "sublabel": "con aviso previo",
-      "width": 140,
-      "yOffset": -46
+      "sublabel": "tras aviso final",
+      "width": 140
     },
     {
       "id": "s_cancelado",
       "lane": "crm",
-      "col": 2,
+      "col": 4,
       "type": "security",
       "label": "CANCELADO",
-      "sublabel": "regla por definir",
-      "width": 140,
-      "yOffset": 46
+      "sublabel": "eventualmente",
+      "tag": "regla POR DEFINIR",
+      "width": 140
     },
     {
       "id": "h_b2b",
       "lane": "humano",
       "col": 5,
-      "type": "cloud",
+      "type": "security",
       "icon": "person",
-      "label": "Ejecutivo B2B",
-      "sublabel": "venta consultiva",
-      "tag": "otro journey",
+      "label": "EMPRESA / FLOTA",
+      "sublabel": "ejecutivo B2B",
+      "tag": "journey B2B aparte",
       "width": 140
     }
   ],
@@ -754,6 +765,12 @@
     },
     {
       "from": "a_dunning",
+      "to": "a_intento",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "from": "a_intento",
       "to": "s_pendiente"
     },
     {
@@ -767,9 +784,10 @@
       "variant": "dashed"
     },
     {
-      "from": "a_dunning",
+      "from": "a_intento",
       "to": "q_gracia",
-      "variant": "emphasis"
+      "variant": "security",
+      "role": "error"
     },
     {
       "from": "q_gracia",
@@ -785,14 +803,22 @@
       "role": "error"
     },
     {
-      "from": "s_pendiente",
-      "to": "s_suspendido",
-      "variant": "dashed"
+      "from": "s_suspendido",
+      "to": "q_susp",
+      "variant": "security",
+      "role": "error"
     },
     {
-      "from": "s_suspendido",
+      "from": "q_susp",
+      "to": "p_reactiva",
+      "label": "SÍ",
+      "variant": "emphasis"
+    },
+    {
+      "from": "q_susp",
       "to": "s_cancelado",
-      "variant": "dashed",
+      "label": "NO",
+      "variant": "security",
       "role": "error"
     },
     {
@@ -831,15 +857,9 @@
       "toSide": "bottom"
     },
     {
-      "from": "k_suma",
-      "to": "k_pyme",
-      "label": "crece",
-      "variant": "dashed"
-    },
-    {
-      "from": "k_pyme",
+      "from": "q_otro",
       "to": "h_b2b",
-      "label": "B2B",
+      "label": "empresa",
       "variant": "security",
       "role": "branch",
       "fromSide": "bottom",
@@ -848,12 +868,12 @@
   ],
   "cards": [
     {
-      "dot": "amber",
+      "dot": "rose",
       "title": "Cobro y morosidad",
       "items": [
-        "Pago falla → aviso automático + segundo intento",
-        "Recordatorios de regularización durante ~15 días de gracia",
-        "Aviso antes de suspender · luego SUSPENDIDO"
+        "Pago falla → PAGO PENDIENTE → 1er aviso + 2º intento + recordatorios",
+        "Período de gracia ~15 días (REFERENCIAL, no definitivo) → aviso final → SUSPENDIDO",
+        "Si regulariza (en gracia o suspendido) → reactivación automática → ACTIVO"
       ]
     },
     {
@@ -862,15 +882,43 @@
       "items": [
         "Día 7: ¿cómo va? · ofrecer ayuda · recordar funciones",
         "Día 30: encuesta · reseña · beneficio de fidelización",
-        "Campañas continuas de customer success"
+        "Cancelación voluntaria y cambio de vehículo: ver Tramo 4B"
       ]
     },
     {
       "dot": "slate",
       "title": "Empresa / flota",
       "items": [
-        "Solo bifurcación futura: REQUIERE CUSTOMER JOURNEY B2B DIFERENTE",
-        "Proceso consultivo con ejecutivo humano"
+        "Solo bifurcación: REQUIERE CUSTOMER JOURNEY B2B DIFERENTE",
+        "Proceso consultivo con ejecutivo humano · se desarrolla aparte"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "POR DEFINIR",
+      "items": [
+        "Plazo exacto de gracia (hoy ~15 días referencial)",
+        "Regla para pasar de SUSPENDIDO a CANCELADO",
+        "Descuento o beneficio por vehículo adicional"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Qué medir",
+      "items": [
+        "Activos a 30 / 60 / 90 días · churn · NPS · reseñas",
+        "Pagos fallidos · % recuperado en gracia · suspendidos",
+        "Segundo vehículo · upsell · referidos"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Cómo leer",
+      "items": [
+        "Línea verde continua = CAMINO PRINCIPAL",
+        "Línea roja punteada = EXCEPCIÓN · gris punteada = camino secundario",
+        "Caja naranja = AUTOMATIZACIÓN · caja amarilla 👤 = INTERVENCIÓN HUMANA",
+        "◆ = decisión · etiqueta POR DEFINIR = decisión de negocio pendiente"
       ]
     }
   ]

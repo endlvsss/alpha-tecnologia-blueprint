@@ -1,4 +1,4 @@
-import { workflow } from "./common.mjs";
+import { workflow, PD } from "./common.mjs";
 
 const W = 140;
 workflow("1-adquisicion", "Alpha · Tramo 1 — Adquisición y compra (etapas 1–5)", {
@@ -19,7 +19,7 @@ workflow("1-adquisicion", "Alpha · Tramo 1 — Adquisición y compra (etapas 1�
 
     { id: "t_canales", lane: "touch", col: 0, type: "frontend", label: "Redes y anuncios", sublabel: "IG · TikTok · Meta · Google", width: W },
     { id: "t_landing", lane: "touch", col: 1, type: "frontend", label: "Landing Page Alpha", sublabel: "demo · precios · cotizar", tag: "autoservicio", width: W },
-    { id: "t_planes", lane: "touch", col: 2, type: "frontend", label: "Comparador de planes", sublabel: "Starter · Pro · Max*", tag: "equipo + plan", width: W },
+    { id: "t_planes", lane: "touch", col: 2, type: "frontend", label: "Comparador de planes", sublabel: "Starter · Pro · Max (provisorio)", tag: PD, width: W },
     { id: "t_checkout", lane: "touch", col: 3, type: "frontend", label: "Checkout", sublabel: "RUT · patente · vehículo", width: W },
     { id: "t_pago", lane: "touch", col: 4, type: "frontend", label: "Webpay / tarjeta", sublabel: "pasarela de pago", width: W },
 
@@ -28,15 +28,17 @@ workflow("1-adquisicion", "Alpha · Tramo 1 — Adquisición y compra (etapas 1�
     { id: "p_flujo", lane: "plataforma", col: 5, type: "backend", label: "Flujo de instalación", sublabel: "sigue en el Tramo 2 →", tag: "activado", width: W },
 
     { id: "a_lead", lane: "auto", col: 0, type: "messagebus", label: "Captura de lead", sublabel: "píxel · UTM · formulario", width: W },
-    { id: "a_remarketing", lane: "auto", col: 3, type: "messagebus", label: "Remarketing", sublabel: "Meta · Google · email*", tag: "excepción", width: W },
+    { id: "a_registra", lane: "auto", col: 3, type: "messagebus", label: "Registra abandono", sublabel: "fuente + campaña", width: W, yOffset: -46 },
+    { id: "a_remarketing", lane: "auto", col: 3, type: "messagebus", label: "Recupera el lead", sublabel: "Meta · Google · email*", tag: "carrito: POR DEFINIR", width: W, yOffset: 46 },
     { id: "a_rechazo", lane: "auto", col: 4, type: "messagebus", label: "Aviso de rechazo", sublabel: "invita a reintentar", tag: "excepción", width: W },
-    { id: "a_post", lane: "auto", col: 5, type: "messagebus", label: "Post-compra", tag: "automática", sublabel: "email · WhatsApp · boleta", width: W },
+    { id: "a_post", lane: "auto", col: 5, type: "messagebus", label: "Post-compra", tag: "automática", sublabel: "cuenta · email · WhatsApp", width: W },
 
     { id: "s_lead", lane: "crm", col: 0, type: "database", label: "LEAD", width: W },
     { id: "s_interesado", lane: "crm", col: 1, type: "database", label: "INTERESADO", width: W },
-    { id: "s_checkout", lane: "crm", col: 3, type: "database", label: "CHECKOUT INICIADO", width: W, yOffset: -40 },
-    { id: "s_abandono", lane: "crm", col: 3, type: "security", label: "CHECKOUT ABANDONADO", sublabel: "sigue como lead", width: W, yOffset: 40 },
-    { id: "s_pagado", lane: "crm", col: 5, type: "database", label: "PAGADO", width: W },
+    { id: "s_checkout", lane: "crm", col: 3, type: "database", label: "CHECKOUT INICIADO", width: W, yOffset: -46 },
+    { id: "s_abandono", lane: "crm", col: 3, type: "security", label: "CHECKOUT ABANDONADO", sublabel: "lead recuperable", tag: "subestado medible", width: W, yOffset: 46 },
+    { id: "s_pagado", lane: "crm", col: 5, type: "database", label: "PAGADO", width: W, yOffset: -46 },
+    { id: "s_cuenta", lane: "crm", col: 5, type: "database", label: "CUENTA CREADA", sublabel: "evento · sin GPS aún", width: W, yOffset: 46 },
 
     { id: "h_whatsapp", lane: "humano", col: 1, type: "cloud", icon: "person", label: "Ayuda por WhatsApp", sublabel: "solo si el cliente pide", width: W },
   ],
@@ -57,7 +59,8 @@ workflow("1-adquisicion", "Alpha · Tramo 1 — Adquisición y compra (etapas 1�
     { from: "t_planes", to: "t_checkout", variant: "emphasis" },
     { from: "t_checkout", to: "q_checkout", variant: "emphasis" },
     { from: "q_checkout", to: "t_pago", label: "SÍ", variant: "emphasis" },
-    { from: "q_checkout", to: "a_remarketing", label: "NO", variant: "security", role: "error" },
+    { from: "q_checkout", to: "a_registra", label: "NO", variant: "security", role: "error" },
+    { from: "a_registra", to: "a_remarketing", variant: "security", role: "error" },
     { from: "t_pago", to: "q_pago", variant: "emphasis" },
     { from: "q_pago", to: "a_rechazo", label: "NO", variant: "security", role: "error" },
     { from: "q_pago", to: "a_post", label: "SÍ", variant: "emphasis" },
@@ -68,12 +71,15 @@ workflow("1-adquisicion", "Alpha · Tramo 1 — Adquisición y compra (etapas 1�
     { from: "a_lead", to: "s_lead", fromSide: "bottom", toSide: "top" },
     { from: "s_lead", to: "s_interesado", variant: "dashed" },
     { from: "s_checkout", to: "s_abandono", label: "no completa", variant: "security", role: "error" },
-    { from: "a_remarketing", to: "s_abandono", variant: "security", role: "error" },
+    { from: "a_registra", to: "s_abandono", variant: "security", role: "error" },
+    { from: "a_remarketing", to: "t_landing", label: "vuelve", variant: "dashed", role: "return" },
+    { from: "s_pagado", to: "s_cuenta", variant: "dashed" },
     { from: "t_landing", to: "h_whatsapp", label: "¿dudas?", variant: "dashed", role: "branch" },
   ],
   cards: [
-    { dot: "cyan", title: "Autoservicio primero", items: ["Todo canal dirige a la landing", "El cliente compara, cotiza y compra solo", "WhatsApp humano solo si lo pide"] },
-    { dot: "amber", title: "Por definir", items: ["*Nombres, precios y funciones de cada plan", "Costo inicial de equipo + instalación", "Descuento por pago anual"] },
-    { dot: "rose", title: "Excepciones", items: ["Abandono → remarketing (*solo con consentimiento)", "Checkout pide: nombre, RUT, teléfono, correo, dirección, patente, marca, modelo, año", "Post-compra: crea cliente en CRM, registra compra, envía email + WhatsApp + comprobante", "Pago rechazado → aviso y reintento"] },
+    { dot: "cyan", title: "Autoservicio primero", items: ["Todo canal dirige a la landing", "El cliente compara, cotiza y compra solo", "WhatsApp humano solo si lo pide", "Checkout pide: nombre, RUT, teléfono, correo, dirección, patente, marca, modelo, año"] },
+    { dot: "rose", title: "Excepciones", items: ["No completa checkout → CHECKOUT ABANDONADO (subestado medible)", "Se registra fuente/campaña y se recupera con Meta, Google y email (*solo con consentimiento)", "Sigue en el funnel como lead recuperable", "Pago rechazado → aviso y reintento"] },
+    { dot: "amber", title: "POR DEFINIR", items: ["Nombres, precios y funciones de los planes", "Costo inicial de equipo + instalación · descuento anual", "Mecánica de recuperación de carrito"] },
+    { dot: "emerald", title: "Qué medir", items: ["Visitas a la landing · origen · campaña · CTR a planes", "Visita → plan → checkout → pago", "Tasa de abandono de checkout y % recuperado"] },
   ],
 });

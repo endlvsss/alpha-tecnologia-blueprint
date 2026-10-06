@@ -555,6 +555,16 @@
   ],
   "nodes": [
     {
+      "id": "k_ingresa",
+      "lane": "cliente",
+      "col": 0,
+      "type": "external",
+      "icon": "person",
+      "label": "Entra a su cuenta",
+      "sublabel": "ve “Instalación pendiente”",
+      "width": 140
+    },
+    {
       "id": "k_elige",
       "lane": "cliente",
       "col": 1,
@@ -582,6 +592,7 @@
       "icon": "person",
       "label": "Entrega el vehículo",
       "sublabel": "en su domicilio",
+      "tag": "no-show → 2C",
       "width": 140
     },
     {
@@ -600,8 +611,8 @@
       "col": 0,
       "type": "frontend",
       "label": "Cuenta Alpha",
-      "sublabel": "acceso antes de instalar",
-      "tag": "desde Tramo 1",
+      "sublabel": "sin datos GPS todavía",
+      "tag": "CUENTA CREADA",
       "width": 140
     },
     {
@@ -611,6 +622,7 @@
       "type": "frontend",
       "label": "Agenda online",
       "sublabel": "solo horarios reales",
+      "tag": "cambiar/cancelar → 2B",
       "width": 140
     },
     {
@@ -646,8 +658,18 @@
       "col": 1,
       "type": "security",
       "icon": "flag",
-      "label": "◆ ¿Hay cupo?",
+      "label": "◆ ¿Cupo compatible?",
       "sublabel": "disponibilidad técnica",
+      "width": 140
+    },
+    {
+      "id": "p_alt",
+      "lane": "plataforma",
+      "col": 2,
+      "type": "backend",
+      "label": "Alternativas auto.",
+      "sublabel": "fechas · rango · Avísame",
+      "tag": "detalle en 2B",
       "width": 140
     },
     {
@@ -674,8 +696,8 @@
       "lane": "auto",
       "col": 5,
       "type": "messagebus",
-      "label": "Activa GPS",
-      "sublabel": "vehículo en su cuenta",
+      "label": "Vincula IMEI",
+      "sublabel": "vehículo + GPS en cuenta",
       "tag": "automático",
       "width": 140
     },
@@ -716,7 +738,7 @@
       "lane": "crm",
       "col": 5,
       "type": "database",
-      "label": "ACTIVO",
+      "label": "VEHÍCULO ACTIVO",
       "width": 140
     },
     {
@@ -737,6 +759,7 @@
       "icon": "briefcase",
       "label": "Inicia trayecto",
       "sublabel": "marca “en camino”",
+      "tag": "no-show → 2C",
       "width": 140
     },
     {
@@ -758,7 +781,7 @@
       "label": "Instala y prueba",
       "sublabel": "IMEI · señal · plataforma",
       "width": 140,
-      "yOffset": -48
+      "yOffset": -58
     },
     {
       "id": "q_instal",
@@ -768,7 +791,7 @@
       "icon": "flag",
       "label": "◆ ¿Instalación OK?",
       "width": 140,
-      "yOffset": 48
+      "yOffset": 58
     },
     {
       "id": "x_checkout",
@@ -781,23 +804,14 @@
       "width": 140
     },
     {
-      "id": "h_sincupo",
-      "lane": "humano",
-      "col": 1,
-      "type": "cloud",
-      "icon": "person",
-      "label": "Coordina sin cupo",
-      "sublabel": "ejecutivo contacta",
-      "width": 140
-    },
-    {
       "id": "h_falla",
       "lane": "humano",
       "col": 4,
-      "type": "cloud",
+      "type": "security",
       "icon": "person",
-      "label": "Soporte técnico",
-      "sublabel": "falla en instalación",
+      "label": "INCIDENCIA INST.",
+      "sublabel": "soporte recibe ticket",
+      "tag": "detalle en 2C",
       "width": 140
     }
   ],
@@ -838,11 +852,26 @@
     },
     {
       "from": "q_dispo",
-      "to": "h_sincupo",
+      "to": "p_alt",
       "label": "NO",
       "variant": "security",
-      "role": "error",
-      "toSide": "left"
+      "role": "error"
+    },
+    {
+      "from": "p_alt",
+      "to": "t_agenda",
+      "label": "otra fecha",
+      "variant": "dashed",
+      "role": "return"
+    },
+    {
+      "from": "k_ingresa",
+      "to": "t_cuenta",
+      "variant": "dashed"
+    },
+    {
+      "from": "k_ingresa",
+      "to": "k_elige"
     },
     {
       "from": "a_asigna",
@@ -908,12 +937,15 @@
     {
       "from": "x_checkin",
       "to": "x_instala",
-      "variant": "emphasis"
+      "variant": "emphasis",
+      "toSide": "left"
     },
     {
       "from": "x_instala",
       "to": "q_instal",
-      "variant": "emphasis"
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top"
     },
     {
       "from": "q_instal",
@@ -958,26 +990,45 @@
       "title": "Agenda 100% automática",
       "items": [
         "El técnico carga cada semana días, bloques, horarios no disponibles y cupo diario",
-        "El cliente solo ve horarios reales",
-        "Al elegir: se reserva el bloque, se asigna técnico y se confirma a ambos"
+        "El cliente solo ve horarios reales; al elegir se reserva, se asigna técnico y se confirma a ambos",
+        "Sin cupo compatible → alternativas automáticas antes de escalar a una persona (Tramo 2B)"
       ]
     },
     {
       "dot": "violet",
-      "title": "Evidencia del técnico",
+      "title": "CUENTA CREADA ≠ VEHÍCULO ACTIVO",
       "items": [
-        "Check-in: patente, estado visual, fotos, observaciones, hora",
-        "Instalación: IMEI, patente, cliente, vehículo, hora + pruebas",
-        "Check-out: fotos, checklist, IMEI final, firma, hora de entrega"
+        "Antes de instalar: entra, ve onboarding, completa perfil y ve “Instalación pendiente”",
+        "Nunca se muestran datos GPS falsos",
+        "Tras instalación exitosa: se vincula IMEI + vehículo → VEHÍCULO ACTIVO"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Evidencia y control de calidad",
+      "items": [
+        "Check-in: patente, estado, fotos, observaciones, hora",
+        "Pruebas: GPS conectado, posición, comunicación, estado, funciones",
+        "Check-out: fotos, checklist, IMEI final, firma, hora · INSTALADO solo si todo OK"
       ]
     },
     {
       "dot": "emerald",
-      "title": "Pruebas antes de entregar",
+      "title": "Qué medir",
       "items": [
-        "GPS conectado y posición correcta",
-        "Comunicación con la plataforma",
-        "Estado del equipo y funciones disponibles"
+        "Pago → agenda · agenda → instalación",
+        "Tiempo hasta instalación · tiempo de instalación",
+        "Reprogramaciones · no-show · instalaciones fallidas"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Cómo leer",
+      "items": [
+        "Línea verde continua = CAMINO PRINCIPAL",
+        "Línea roja punteada = EXCEPCIÓN · gris punteada = camino secundario",
+        "Caja naranja = AUTOMATIZACIÓN · caja amarilla 👤 = INTERVENCIÓN HUMANA",
+        "◆ = decisión · etiqueta POR DEFINIR = decisión de negocio pendiente"
       ]
     }
   ]

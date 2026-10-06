@@ -626,8 +626,8 @@
       "col": 2,
       "type": "frontend",
       "label": "Comparador de planes",
-      "sublabel": "Starter · Pro · Max*",
-      "tag": "equipo + plan",
+      "sublabel": "Starter · Pro · Max (provisorio)",
+      "tag": "POR DEFINIR",
       "width": 140
     },
     {
@@ -686,14 +686,25 @@
       "width": 140
     },
     {
+      "id": "a_registra",
+      "lane": "auto",
+      "col": 3,
+      "type": "messagebus",
+      "label": "Registra abandono",
+      "sublabel": "fuente + campaña",
+      "width": 140,
+      "yOffset": -46
+    },
+    {
       "id": "a_remarketing",
       "lane": "auto",
       "col": 3,
       "type": "messagebus",
-      "label": "Remarketing",
+      "label": "Recupera el lead",
       "sublabel": "Meta · Google · email*",
-      "tag": "excepción",
-      "width": 140
+      "tag": "carrito: POR DEFINIR",
+      "width": 140,
+      "yOffset": 46
     },
     {
       "id": "a_rechazo",
@@ -712,7 +723,7 @@
       "type": "messagebus",
       "label": "Post-compra",
       "tag": "automática",
-      "sublabel": "email · WhatsApp · boleta",
+      "sublabel": "cuenta · email · WhatsApp",
       "width": 140
     },
     {
@@ -738,7 +749,7 @@
       "type": "database",
       "label": "CHECKOUT INICIADO",
       "width": 140,
-      "yOffset": -40
+      "yOffset": -46
     },
     {
       "id": "s_abandono",
@@ -746,9 +757,10 @@
       "col": 3,
       "type": "security",
       "label": "CHECKOUT ABANDONADO",
-      "sublabel": "sigue como lead",
+      "sublabel": "lead recuperable",
+      "tag": "subestado medible",
       "width": 140,
-      "yOffset": 40
+      "yOffset": 46
     },
     {
       "id": "s_pagado",
@@ -756,7 +768,18 @@
       "col": 5,
       "type": "database",
       "label": "PAGADO",
-      "width": 140
+      "width": 140,
+      "yOffset": -46
+    },
+    {
+      "id": "s_cuenta",
+      "lane": "crm",
+      "col": 5,
+      "type": "database",
+      "label": "CUENTA CREADA",
+      "sublabel": "evento · sin GPS aún",
+      "width": 140,
+      "yOffset": 46
     },
     {
       "id": "h_whatsapp",
@@ -842,8 +865,14 @@
     },
     {
       "from": "q_checkout",
-      "to": "a_remarketing",
+      "to": "a_registra",
       "label": "NO",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "from": "a_registra",
+      "to": "a_remarketing",
       "variant": "security",
       "role": "error"
     },
@@ -901,10 +930,22 @@
       "role": "error"
     },
     {
-      "from": "a_remarketing",
+      "from": "a_registra",
       "to": "s_abandono",
       "variant": "security",
       "role": "error"
+    },
+    {
+      "from": "a_remarketing",
+      "to": "t_landing",
+      "label": "vuelve",
+      "variant": "dashed",
+      "role": "return"
+    },
+    {
+      "from": "s_pagado",
+      "to": "s_cuenta",
+      "variant": "dashed"
     },
     {
       "from": "t_landing",
@@ -921,26 +962,46 @@
       "items": [
         "Todo canal dirige a la landing",
         "El cliente compara, cotiza y compra solo",
-        "WhatsApp humano solo si lo pide"
-      ]
-    },
-    {
-      "dot": "amber",
-      "title": "Por definir",
-      "items": [
-        "*Nombres, precios y funciones de cada plan",
-        "Costo inicial de equipo + instalación",
-        "Descuento por pago anual"
+        "WhatsApp humano solo si lo pide",
+        "Checkout pide: nombre, RUT, teléfono, correo, dirección, patente, marca, modelo, año"
       ]
     },
     {
       "dot": "rose",
       "title": "Excepciones",
       "items": [
-        "Abandono → remarketing (*solo con consentimiento)",
-        "Checkout pide: nombre, RUT, teléfono, correo, dirección, patente, marca, modelo, año",
-        "Post-compra: crea cliente en CRM, registra compra, envía email + WhatsApp + comprobante",
+        "No completa checkout → CHECKOUT ABANDONADO (subestado medible)",
+        "Se registra fuente/campaña y se recupera con Meta, Google y email (*solo con consentimiento)",
+        "Sigue en el funnel como lead recuperable",
         "Pago rechazado → aviso y reintento"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "POR DEFINIR",
+      "items": [
+        "Nombres, precios y funciones de los planes",
+        "Costo inicial de equipo + instalación · descuento anual",
+        "Mecánica de recuperación de carrito"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Qué medir",
+      "items": [
+        "Visitas a la landing · origen · campaña · CTR a planes",
+        "Visita → plan → checkout → pago",
+        "Tasa de abandono de checkout y % recuperado"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Cómo leer",
+      "items": [
+        "Línea verde continua = CAMINO PRINCIPAL",
+        "Línea roja punteada = EXCEPCIÓN · gris punteada = camino secundario",
+        "Caja naranja = AUTOMATIZACIÓN · caja amarilla 👤 = INTERVENCIÓN HUMANA",
+        "◆ = decisión · etiqueta POR DEFINIR = decisión de negocio pendiente"
       ]
     }
   ]

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.0.1">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>Alpha · Estados del CRM y alertas internas · Diagrama</title>
+  <title>Alpha · Estados del CRM (principal, subestado, evento) y alertas · Diagrama</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -4978,7 +4978,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="PLANO / REV 01"
            data-preset-badge-editorial="EDITORIAL / NOTA DE CAMPO">
         <div class="pulse-dot"></div>
-        <h1>Alpha · Estados del CRM y alertas internas</h1>
+        <h1>Alpha · Estados del CRM (principal, subestado, evento) y alertas</h1>
       </div>
     </div>
 
@@ -4987,8 +4987,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / LÁMINA 04">
-      <svg viewBox="0 0 1109 768" data-reader-fit="intrinsic-height" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="standard">
-        <title id="archify-diagram-title">Alpha · Estados del CRM y alertas internas</title>
+      <svg viewBox="0 0 1148 976" data-reader-fit="intrinsic-height" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="standard">
+        <title id="archify-diagram-title">Alpha · Estados del CRM (principal, subestado, evento) y alertas</title>
         <desc id="archify-diagram-description">Un diagrama de ciclo de vida generado por Archify.</desc>
         <!-- Definitions -->
         <defs>
@@ -5013,79 +5013,99 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Lifecycle bands -->
-        <text x="18" y="88" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Venta online (Tramo 1)</text>
-        <text x="18" y="272" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Instalación (Tramo 2)</text>
-        <text x="18" y="456" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Postventa y cobro (Tramos 3–4)</text>
-        <text x="18" y="640" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Salida</text>
+        <text x="18" y="88" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Venta online</text>
+        <text x="18" y="376" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Instalación y activación</text>
+        <text x="18" y="664" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Postventa y cobro</text>
+        <text x="18" y="848" class="t-dim" font-size="10" font-weight="600" writing-mode="vertical-rl" text-anchor="middle">Salida</text>
 
         <!-- Primary lifecycle rail -->
 
 
         <!-- Transition paths -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 200 88 L 266 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="lead" data-edge-to="interesado" data-edge-label="visita" data-edge-key="0" data-composition-points="200,88;266,88" data-composition-crossover="halo" d="M 200 88 L 266 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 200 88 L 305 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="lead" data-edge-to="interesado" data-edge-label="visita" data-edge-key="0" data-composition-points="200,88;305,88" data-composition-crossover="halo" d="M 200 88 L 305 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 406 88 L 472 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="interesado" data-edge-to="checkout" data-edge-label="compra" data-edge-key="1" data-composition-points="406,88;472,88" data-composition-crossover="halo" d="M 406 88 L 472 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 445 88 L 526 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="interesado" data-edge-to="checkout" data-edge-label="compra" data-edge-key="1" data-composition-points="445,88;526,88" data-composition-crossover="halo" d="M 445 88 L 526 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 612 88 L 693 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="checkout" data-edge-to="pagado" data-edge-label="paga" data-edge-key="2" data-composition-points="612,88;693,88" data-composition-crossover="halo" d="M 612 88 L 693 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 666 88 L 742 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="checkout" data-edge-to="pagado" data-edge-label="paga" data-edge-key="2" data-composition-points="666,88;742,88" data-composition-crossover="halo" d="M 666 88 L 742 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 833 88 L 909 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="pagado" data-edge-to="agendada" data-edge-label="agenda" data-edge-key="3" data-composition-points="833,88;909,88" data-composition-crossover="halo" d="M 833 88 L 909 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 596 120 L 596 160" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="checkout" data-edge-to="abandonado" data-edge-key="3" data-composition-points="596,120;596,160" data-composition-crossover="halo" d="M 596 120 L 596 160" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 979 120 L 979 240" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="agendada" data-edge-to="camino" data-edge-label="sale" data-edge-key="4" data-composition-points="979,120;979,240" data-composition-crossover="halo" d="M 979 120 L 979 240" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 526 192 L 138 192 Q 130 192 130 184 L 130 120" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="abandonado" data-edge-to="lead" data-edge-label="recuperable" data-edge-key="4" data-composition-points="526,192;130,192;130,120" data-composition-crossover="halo" d="M 526 192 L 138 192 Q 130 192 130 184 L 130 120" class="a-dashed" stroke-width="1.1" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 909 272 L 833 272" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="camino" data-edge-to="eninst" data-edge-label="check-in" data-edge-key="5" data-composition-points="909,272;833,272" data-composition-crossover="halo" d="M 909 272 L 833 272" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 882 88 L 948 88" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="pagado" data-edge-to="cuenta" data-edge-label="acceso" data-edge-key="5" data-composition-points="882,88;948,88" data-composition-crossover="halo" d="M 882 88 L 948 88" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 693 272 L 612 272" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="eninst" data-edge-to="instalado" data-edge-label="check-out" data-edge-key="6" data-composition-points="693,272;612,272" data-composition-crossover="halo" d="M 693 272 L 612 272" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 1018 120 L 1018 344" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="cuenta" data-edge-to="agendada" data-edge-label="agenda" data-edge-key="6" data-composition-points="1018,120;1018,344" data-composition-crossover="halo" d="M 1018 120 L 1018 344" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 472 272 L 406 272" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="instalado" data-edge-to="activo" data-edge-label="activa" data-edge-key="7" data-composition-points="472,272;406,272" data-composition-crossover="halo" d="M 472 272 L 406 272" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 948 376 L 882 376" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agendada" data-edge-to="camino" data-edge-label="sale" data-edge-key="7" data-composition-points="948,376;882,376" data-composition-crossover="halo" d="M 948 376 L 882 376" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 542 120 L 542 170 Q 542 180 532 180 L 140 180 Q 130 180 130 170 L 130 120" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="checkout" data-edge-to="lead" data-edge-label="abandona" data-edge-key="8" data-composition-points="542,120;542,180;130,180;130,120" data-composition-crossover="halo" d="M 542 120 L 542 170 Q 542 180 532 180 L 140 180 Q 130 180 130 170 L 130 120" class="a-dashed" stroke-width="1.1" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 742 376 L 666 376" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="camino" data-edge-to="eninst" data-edge-label="check-in" data-edge-key="8" data-composition-points="742,376;666,376" data-composition-crossover="halo" d="M 742 376 L 666 376" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 291 304 L 291 318 Q 291 328 281 328 L 125 328 Q 115 328 115 338 L 115 424" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="activo" data-edge-to="soporte" data-edge-label="ticket" data-edge-key="9" data-composition-points="291,304;291,328;115,328;115,424" data-composition-crossover="halo" d="M 291 304 L 291 318 Q 291 328 281 328 L 125 328 Q 115 328 115 338 L 115 424" class="a-dashed" stroke-width="1.1" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 526 376 L 445 376" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="eninst" data-edge-to="instalado" data-edge-label="todo OK" data-edge-key="9" data-composition-points="526,376;445,376" data-composition-crossover="halo" d="M 526 376 L 445 376" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 145 424 L 145 362 Q 145 352 155 352 L 311 352 Q 321 352 321 342 L 321 304" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="soporte" data-edge-to="activo" data-edge-label="resuelto" data-edge-key="10" data-composition-points="145,424;145,352;321,352;321,304" data-composition-crossover="halo" d="M 145 424 L 145 362 Q 145 352 155 352 L 311 352 Q 321 352 321 342 L 321 304" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 596 408 L 596 448" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="eninst" data-edge-to="incid" data-edge-key="10" data-composition-points="596,408;596,448" data-composition-crossover="halo" d="M 596 408 L 596 448" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:11">
-          <path data-graph-role="automatic-crossover-underlay" d="M 351 304 L 351 390 Q 351 400 361 400 L 517 400 Q 527 400 527 410 L 527 424" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="activo" data-edge-to="pendiente" data-edge-label="pago falla" data-edge-key="11" data-composition-points="351,304;351,400;527,400;527,424" data-composition-crossover="halo" d="M 351 304 L 351 390 Q 351 400 361 400 L 517 400 Q 527 400 527 410 L 527 424" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 666 480 L 1010 480 Q 1018 480 1018 472 L 1018 408" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="incid" data-edge-to="agendada" data-edge-label="2ª visita" data-edge-key="11" data-composition-points="666,480;1018,480;1018,408" data-composition-crossover="halo" d="M 666 480 L 1010 480 Q 1018 480 1018 472 L 1018 408" class="a-dashed" stroke-width="1.1" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:12">
-          <path data-graph-role="automatic-crossover-underlay" d="M 557 424 L 557 386 Q 557 376 547 376 L 391 376 Q 381 376 381 366 L 381 304" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="pendiente" data-edge-to="activo" data-edge-label="regulariza" data-edge-key="12" data-composition-points="557,424;557,376;381,376;381,304" data-composition-crossover="halo" d="M 557 424 L 557 386 Q 557 376 547 376 L 391 376 Q 381 376 381 366 L 381 304" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 305 369 L 200 369" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="instalado" data-edge-to="activo" data-edge-label="IMEI vinculado" data-edge-key="12" data-composition-points="305,369;200,369" data-composition-crossover="halo" d="M 305 369 L 200 369" class="a-default" stroke-width="1.1" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:13">
-          <path data-graph-role="automatic-crossover-underlay" d="M 612 456 L 693 456" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="pendiente" data-edge-to="suspendido" data-edge-label="~15 días" data-edge-key="13" data-composition-points="612,456;693,456" data-composition-crossover="halo" d="M 612 456 L 693 456" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 109 408 L 109 424 Q 109 432 117 432 L 131 432 Q 139 432 139 440 L 139 600 Q 139 608 131 608 L 131 608 Q 123 608 123 616 L 123 632" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="activo" data-edge-to="soporte" data-edge-label="ticket" data-edge-key="13" data-composition-points="109,408;109,432;139,432;139,608;123,608;123,632" data-composition-crossover="halo" d="M 109 408 L 109 424 Q 109 432 117 432 L 131 432 Q 139 432 139 440 L 139 600 Q 139 608 131 608 L 131 608 Q 123 608 123 616 L 123 632" class="a-dashed" stroke-width="1.1" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:14">
-          <path data-graph-role="automatic-crossover-underlay" d="M 763 488 L 763 608" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="suspendido" data-edge-to="cancelado" data-edge-key="14" data-composition-points="763,488;763,608" data-composition-crossover="halo" d="M 763 488 L 763 608" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 137 632 L 137 616 Q 137 608 145 608 L 145 608 Q 153 608 153 600 L 153 440 Q 153 432 145 432 L 131 432 Q 123 432 123 424 L 123 408" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="soporte" data-edge-to="activo" data-edge-label="resuelto" data-edge-key="14" data-composition-points="137,632;137,608;153,608;153,432;123,432;123,408" data-composition-crossover="halo" d="M 137 632 L 137 616 Q 137 608 145 608 L 145 608 Q 153 608 153 600 L 153 440 Q 153 432 145 432 L 131 432 Q 123 432 123 424 L 123 408" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:15">
+          <path data-graph-role="automatic-crossover-underlay" d="M 137 408 L 137 424 Q 137 432 145 432 L 360 432 Q 368 432 368 440 L 368 632" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="activo" data-edge-to="pendiente" data-edge-label="pago falla" data-edge-key="15" data-composition-points="137,408;137,432;368,432;368,632" data-composition-crossover="halo" d="M 137 408 L 137 424 Q 137 432 145 432 L 360 432 Q 368 432 368 440 L 368 632" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:16">
+          <path data-graph-role="automatic-crossover-underlay" d="M 382 632 L 382 616 Q 382 608 374 608 L 159 608 Q 151 608 151 600 L 151 408" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="pendiente" data-edge-to="activo" data-edge-label="regulariza" data-edge-key="16" data-composition-points="382,632;382,608;151,608;151,408" data-composition-crossover="halo" d="M 382 632 L 382 616 Q 382 608 374 608 L 159 608 Q 151 608 151 600 L 151 408" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:17">
+          <path data-graph-role="automatic-crossover-underlay" d="M 445 671 L 526 671" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="pendiente" data-edge-to="suspendido" data-edge-label="~15 días*" data-edge-key="17" data-composition-points="445,671;526,671" data-composition-crossover="halo" d="M 445 671 L 526 671" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:18">
+          <path data-graph-role="automatic-crossover-underlay" d="M 596 632 L 596 542 Q 596 534 588 534 L 162 534 Q 154 534 154 526 L 154 440 Q 154 432 146 432 L 138 432 Q 130 432 130 424 L 130 408" fill="none" stroke="var(--mask)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="suspendido" data-edge-to="activo" data-edge-label="reactiva" data-edge-key="18" data-composition-points="596,632;596,534;154,534;154,432;130,432;130,408" data-composition-crossover="halo" d="M 596 632 L 596 542 Q 596 534 588 534 L 162 534 Q 154 534 154 526 L 154 440 Q 154 432 146 432 L 138 432 Q 130 432 130 424 L 130 408" class="a-emphasis" stroke-width="1.6" marker-end="url(#arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:19">
+          <path data-graph-role="automatic-crossover-underlay" d="M 596 696 L 596 816" fill="none" stroke="var(--mask)" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="suspendido" data-edge-to="cancelado" data-edge-label="POR DEFINIR" data-edge-key="19" data-composition-points="596,696;596,816" data-composition-crossover="halo" d="M 596 696 L 596 816" class="a-security" stroke-width="1.1" marker-end="url(#arrowhead-security)"/>
         </g>
 
         <!-- States -->
-        <g id="node-lead" data-node-id="lead" data-node-label="LEAD" tabindex="0" role="button" aria-label="Enfocar LEAD, llega desde anuncios, Venta online (Tramo 1)" aria-pressed="false" data-node-kind="start" data-node-sublabel="llega desde anuncios" data-node-context="Venta online (Tramo 1)">
-          <title>LEAD · llega desde anuncios · Venta online (Tramo 1)</title>
+        <g id="node-lead" data-node-id="lead" data-node-label="LEAD" tabindex="0" role="button" aria-label="Enfocar LEAD, principal, Venta online" aria-pressed="false" data-node-kind="start" data-node-sublabel="principal" data-node-context="Venta online">
+          <title>LEAD · principal · Venta online</title>
           <rect x="60" y="56" width="140" height="64" rx="7" class="c-mask"/>
           <rect x="60" y="56" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
           <g aria-hidden="true" data-lifecycle-initial-marker="">
@@ -5097,245 +5117,292 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           </g>
         <text data-detail="fine" x="83" y="70" class="t-frontend" font-size="8" font-weight="700">01</text>
           <text data-node-label="" data-detail-anchor="" x="130" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">LEAD</text>
-          <text data-detail="context" x="130" y="96" class="t-muted" font-size="8" text-anchor="middle">llega desde anuncios</text>
+          <text data-detail="context" x="130" y="96" class="t-muted" font-size="8" text-anchor="middle">principal</text>
         </g>
 
-        <g id="node-interesado" data-node-id="interesado" data-node-label="INTERESADO" tabindex="0" role="button" aria-label="Enfocar INTERESADO, explora la landing, Venta online (Tramo 1)" aria-pressed="false" data-node-kind="active" data-node-sublabel="explora la landing" data-node-context="Venta online (Tramo 1)">
-          <title>INTERESADO · explora la landing · Venta online (Tramo 1)</title>
-          <rect x="266" y="56" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="266" y="56" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="active" class="semantic-sigil s-frontend" transform="translate(272 62) scale(0.6875)">
+        <g id="node-interesado" data-node-id="interesado" data-node-label="INTERESADO" tabindex="0" role="button" aria-label="Enfocar INTERESADO, subestado de LEAD, Venta online" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="subestado de LEAD" data-node-context="Venta online">
+          <title>INTERESADO · subestado de LEAD · Venta online</title>
+          <rect x="305" y="56" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="305" y="56" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(311 62) scale(0.6875)">
+            <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
+          </g>
+        <text data-detail="fine" x="328" y="70" class="t-cloud" font-size="8" font-weight="700">02</text>
+          <text data-node-label="" data-detail-anchor="" x="375" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">INTERESADO</text>
+          <text data-detail="context" x="375" y="96" class="t-muted" font-size="8" text-anchor="middle">subestado de LEAD</text>
+        </g>
+
+        <g id="node-checkout" data-node-id="checkout" data-node-label="CHECKOUT INICIADO" tabindex="0" role="button" aria-label="Enfocar CHECKOUT INICIADO, subestado de LEAD, Venta online" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="subestado de LEAD" data-node-context="Venta online">
+          <title>CHECKOUT INICIADO · subestado de LEAD · Venta online</title>
+          <rect x="526" y="56" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="526" y="56" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(532 62) scale(0.6875)">
+            <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
+          </g>
+        <text data-detail="fine" x="549" y="70" class="t-cloud" font-size="8" font-weight="700">03</text>
+          <text data-node-label="" data-detail-anchor="" x="596" y="88.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CHECKOUT INICIADO</text>
+          <text data-detail="context" x="596" y="103.1" class="t-muted" font-size="8" text-anchor="middle">subestado de LEAD</text>
+        </g>
+
+        <g id="node-abandonado" data-node-id="abandonado" data-node-label="CHECKOUT ABANDONADO" tabindex="0" role="button" aria-label="Enfocar CHECKOUT ABANDONADO, subestado medible, Venta online" aria-pressed="false" data-node-kind="failure" data-node-sublabel="subestado medible" data-node-context="Venta online">
+          <title>CHECKOUT ABANDONADO · subestado medible · Venta online</title>
+          <rect x="526" y="160" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="526" y="160" width="140" height="64" rx="7" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="failure" class="semantic-sigil s-security" transform="translate(532 166) scale(0.6875)">
+            <circle cx="8" cy="8" r="5.3"/>
+            <path d="m5.7 5.7 4.6 4.6m0-4.6-4.6 4.6"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="596" y="192.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CHECKOUT ABANDONADO</text>
+          <text data-detail="context" x="596" y="207.1" class="t-muted" font-size="8" text-anchor="middle">subestado medible</text>
+        </g>
+
+        <g id="node-pagado" data-node-id="pagado" data-node-label="PAGADO" tabindex="0" role="button" aria-label="Enfocar PAGADO, principal, Venta online" aria-pressed="false" data-node-kind="active" data-node-sublabel="principal" data-node-context="Venta online">
+          <title>PAGADO · principal · Venta online</title>
+          <rect x="742" y="56" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="742" y="56" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="active" class="semantic-sigil s-frontend" transform="translate(748 62) scale(0.6875)">
             <path d="M2 8h3l1.5-3.5L9 12l1.6-4H14"/>
           </g>
-        <text data-detail="fine" x="289" y="70" class="t-frontend" font-size="8" font-weight="700">02</text>
-          <text data-node-label="" data-detail-anchor="" x="336" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">INTERESADO</text>
-          <text data-detail="context" x="336" y="96" class="t-muted" font-size="8" text-anchor="middle">explora la landing</text>
+        <text data-detail="fine" x="765" y="70" class="t-frontend" font-size="8" font-weight="700">04</text>
+          <text data-node-label="" data-detail-anchor="" x="812" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PAGADO</text>
+          <text data-detail="context" x="812" y="96" class="t-muted" font-size="8" text-anchor="middle">principal</text>
         </g>
 
-        <g id="node-checkout" data-node-id="checkout" data-node-label="CHECKOUT INICIADO" tabindex="0" role="button" aria-label="Enfocar CHECKOUT INICIADO, ¿completa?, Venta online (Tramo 1)" aria-pressed="false" data-node-kind="decision" data-node-sublabel="¿completa?" data-node-context="Venta online (Tramo 1)">
-          <title>CHECKOUT INICIADO · ¿completa? · Venta online (Tramo 1)</title>
-          <rect x="472" y="56" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="472" y="56" width="140" height="64" rx="7" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="neutral" class="semantic-sigil s-database" transform="translate(478 62) scale(0.6875)">
+        <g id="node-cuenta" data-node-id="cuenta" data-node-label="CUENTA CREADA" tabindex="0" role="button" aria-label="Enfocar CUENTA CREADA, evento, Venta online" aria-pressed="false" data-node-kind="neutral" data-node-sublabel="evento" data-node-context="Venta online">
+          <title>CUENTA CREADA · evento · Venta online</title>
+          <rect x="948" y="56" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="948" y="56" width="140" height="64" rx="7" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="neutral" class="semantic-sigil s-external" transform="translate(954 62) scale(0.6875)">
             <rect x="3" y="3" width="10" height="10" rx="2"/>
             <circle cx="8" cy="8" r="1.2" class="sigil-fill"/>
           </g>
-        <text data-detail="fine" x="495" y="70" class="t-database" font-size="8" font-weight="700">03</text>
-          <text data-node-label="" data-detail-anchor="" x="542" y="88.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CHECKOUT INICIADO</text>
-          <text data-detail="context" x="542" y="103.1" class="t-muted" font-size="8" text-anchor="middle">¿completa?</text>
+        <text data-detail="fine" x="971" y="70" class="t-muted" font-size="8" font-weight="700">05</text>
+          <text data-node-label="" data-detail-anchor="" x="1026.5" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CUENTA CREADA</text>
+          <text data-detail="context" x="1018" y="96" class="t-muted" font-size="8" text-anchor="middle">evento</text>
         </g>
 
-        <g id="node-pagado" data-node-id="pagado" data-node-label="PAGADO" tabindex="0" role="button" aria-label="Enfocar PAGADO, Webpay / tarjeta, Venta online (Tramo 1)" aria-pressed="false" data-node-kind="success" data-node-sublabel="Webpay / tarjeta" data-node-context="Venta online (Tramo 1)">
-          <title>PAGADO · Webpay / tarjeta · Venta online (Tramo 1)</title>
-          <rect x="693" y="56" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="693" y="56" width="140" height="64" rx="7" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="success" class="semantic-sigil s-backend" transform="translate(699 62) scale(0.6875)">
-            <circle cx="8" cy="8" r="5.3"/>
-            <path d="m5.2 8 1.8 1.8 3.8-4"/>
-          </g>
-        <text data-detail="fine" x="716" y="70" class="t-backend" font-size="8" font-weight="700">04</text>
-          <text data-node-label="" data-detail-anchor="" x="763" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PAGADO</text>
-          <text data-detail="context" x="763" y="96" class="t-muted" font-size="8" text-anchor="middle">Webpay / tarjeta</text>
-        </g>
-
-        <g id="node-agendada" data-node-id="agendada" data-node-label="INSTALACIÓN AGENDADA" tabindex="0" role="button" aria-label="Enfocar INSTALACIÓN AGENDADA, técnico asignado, Venta online (Tramo 1)" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="técnico asignado" data-node-context="Venta online (Tramo 1)">
-          <title>INSTALACIÓN AGENDADA · técnico asignado · Venta online (Tramo 1)</title>
-          <rect x="909" y="56" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="909" y="56" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(915 62) scale(0.6875)">
-            <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
-          </g>
-        <text data-detail="fine" x="932" y="70" class="t-cloud" font-size="8" font-weight="700">05</text>
-          <text data-node-label="" data-detail-anchor="" x="979" y="88.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">INSTALACIÓN AGENDADA</text>
-          <text data-detail="context" x="979" y="103.1" class="t-muted" font-size="8" text-anchor="middle">técnico asignado</text>
-        </g>
-
-        <g id="node-camino" data-node-id="camino" data-node-label="TÉCNICO EN CAMINO" tabindex="0" role="button" aria-label="Enfocar TÉCNICO EN CAMINO, WhatsApp al cliente, Instalación (Tramo 2)" aria-pressed="false" data-node-kind="active" data-node-sublabel="WhatsApp al cliente" data-node-context="Instalación (Tramo 2)">
-          <title>TÉCNICO EN CAMINO · WhatsApp al cliente · Instalación (Tramo 2)</title>
-          <rect x="909" y="240" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="909" y="240" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="active" class="semantic-sigil s-frontend" transform="translate(915 246) scale(0.6875)">
+        <g id="node-agendada" data-node-id="agendada" data-node-label="INSTALACIÓN AGENDADA" tabindex="0" role="button" aria-label="Enfocar INSTALACIÓN AGENDADA, principal, Instalación y activación" aria-pressed="false" data-node-kind="active" data-node-sublabel="principal" data-node-context="Instalación y activación">
+          <title>INSTALACIÓN AGENDADA · principal · Instalación y activación</title>
+          <rect x="948" y="344" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="948" y="344" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="active" class="semantic-sigil s-frontend" transform="translate(954 350) scale(0.6875)">
             <path d="M2 8h3l1.5-3.5L9 12l1.6-4H14"/>
           </g>
-        <text data-detail="fine" x="932" y="254" class="t-frontend" font-size="8" font-weight="700">06</text>
-          <text data-node-label="" data-detail-anchor="" x="979" y="272.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">TÉCNICO EN CAMINO</text>
-          <text data-detail="context" x="979" y="287.1" class="t-muted" font-size="8" text-anchor="middle">WhatsApp al cliente</text>
+        <text data-detail="fine" x="971" y="358" class="t-frontend" font-size="8" font-weight="700">06</text>
+          <text data-node-label="" data-detail-anchor="" x="1018" y="376.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">INSTALACIÓN AGENDADA</text>
+          <text data-detail="context" x="1018" y="391.1" class="t-muted" font-size="8" text-anchor="middle">principal</text>
         </g>
 
-        <g id="node-eninst" data-node-id="eninst" data-node-label="EN INSTALACIÓN" tabindex="0" role="button" aria-label="Enfocar EN INSTALACIÓN, check-in hecho, Instalación (Tramo 2)" aria-pressed="false" data-node-kind="active" data-node-sublabel="check-in hecho" data-node-context="Instalación (Tramo 2)">
-          <title>EN INSTALACIÓN · check-in hecho · Instalación (Tramo 2)</title>
-          <rect x="693" y="240" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="693" y="240" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="active" class="semantic-sigil s-frontend" transform="translate(699 246) scale(0.6875)">
-            <path d="M2 8h3l1.5-3.5L9 12l1.6-4H14"/>
-          </g>
-        <text data-detail="fine" x="716" y="254" class="t-frontend" font-size="8" font-weight="700">07</text>
-          <text data-node-label="" data-detail-anchor="" x="774.8" y="263" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">EN INSTALACIÓN</text>
-          <text data-detail="context" x="763" y="280" class="t-muted" font-size="8" text-anchor="middle">check-in hecho</text>
-        </g>
-
-        <g id="node-instalado" data-node-id="instalado" data-node-label="INSTALADO" tabindex="0" role="button" aria-label="Enfocar INSTALADO, check-out + firma, Instalación (Tramo 2)" aria-pressed="false" data-node-kind="success" data-node-sublabel="check-out + firma" data-node-context="Instalación (Tramo 2)">
-          <title>INSTALADO · check-out + firma · Instalación (Tramo 2)</title>
-          <rect x="472" y="240" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="472" y="240" width="140" height="64" rx="7" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="success" class="semantic-sigil s-backend" transform="translate(478 246) scale(0.6875)">
-            <circle cx="8" cy="8" r="5.3"/>
-            <path d="m5.2 8 1.8 1.8 3.8-4"/>
-          </g>
-        <text data-detail="fine" x="495" y="254" class="t-backend" font-size="8" font-weight="700">08</text>
-          <text data-node-label="" data-detail-anchor="" x="542" y="263" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">INSTALADO</text>
-          <text data-detail="context" x="542" y="280" class="t-muted" font-size="8" text-anchor="middle">check-out + firma</text>
-        </g>
-
-        <g id="node-activo" data-node-id="activo" data-node-label="ACTIVO" tabindex="0" role="button" aria-label="Enfocar ACTIVO, GPS en su cuenta, Instalación (Tramo 2)" aria-pressed="false" data-node-kind="success" data-node-sublabel="GPS en su cuenta" data-node-context="Instalación (Tramo 2)">
-          <title>ACTIVO · GPS en su cuenta · Instalación (Tramo 2)</title>
-          <rect x="266" y="240" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="266" y="240" width="140" height="64" rx="7" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="success" class="semantic-sigil s-backend" transform="translate(272 246) scale(0.6875)">
-            <circle cx="8" cy="8" r="5.3"/>
-            <path d="m5.2 8 1.8 1.8 3.8-4"/>
-          </g>
-        <text data-detail="fine" x="289" y="254" class="t-backend" font-size="8" font-weight="700">09</text>
-          <text data-node-label="" data-detail-anchor="" x="336" y="263" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ACTIVO</text>
-          <text data-detail="context" x="336" y="280" class="t-muted" font-size="8" text-anchor="middle">GPS en su cuenta</text>
-        </g>
-
-        <g id="node-soporte" data-node-id="soporte" data-node-label="SOPORTE" tabindex="0" role="button" aria-label="Enfocar SOPORTE, ticket abierto, Postventa y cobro (Tramos 3–4)" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="ticket abierto" data-node-context="Postventa y cobro (Tramos 3–4)">
-          <title>SOPORTE · ticket abierto · Postventa y cobro (Tramos 3–4)</title>
-          <rect x="60" y="424" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="60" y="424" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(66 430) scale(0.6875)">
+        <g id="node-camino" data-node-id="camino" data-node-label="TÉCNICO EN CAMINO" tabindex="0" role="button" aria-label="Enfocar TÉCNICO EN CAMINO, subestado, Instalación y activación" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="subestado" data-node-context="Instalación y activación">
+          <title>TÉCNICO EN CAMINO · subestado · Instalación y activación</title>
+          <rect x="742" y="344" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="742" y="344" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(748 350) scale(0.6875)">
             <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="130" y="447" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SOPORTE</text>
-          <text data-detail="context" x="130" y="464" class="t-muted" font-size="8" text-anchor="middle">ticket abierto</text>
+        <text data-detail="fine" x="765" y="358" class="t-cloud" font-size="8" font-weight="700">07</text>
+          <text data-node-label="" data-detail-anchor="" x="812" y="376.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">TÉCNICO EN CAMINO</text>
+          <text data-detail="context" x="812" y="391.1" class="t-muted" font-size="8" text-anchor="middle">subestado</text>
         </g>
 
-        <g id="node-pendiente" data-node-id="pendiente" data-node-label="PAGO PENDIENTE" tabindex="0" role="button" aria-label="Enfocar PAGO PENDIENTE, gracia ~15 días, Postventa y cobro (Tramos 3–4)" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="gracia ~15 días" data-node-context="Postventa y cobro (Tramos 3–4)">
-          <title>PAGO PENDIENTE · gracia ~15 días · Postventa y cobro (Tramos 3–4)</title>
-          <rect x="472" y="424" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="472" y="424" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(478 430) scale(0.6875)">
+        <g id="node-eninst" data-node-id="eninst" data-node-label="EN INSTALACIÓN" tabindex="0" role="button" aria-label="Enfocar EN INSTALACIÓN, subestado, Instalación y activación" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="subestado" data-node-context="Instalación y activación">
+          <title>EN INSTALACIÓN · subestado · Instalación y activación</title>
+          <rect x="526" y="344" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="526" y="344" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(532 350) scale(0.6875)">
             <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="542" y="447" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PAGO PENDIENTE</text>
-          <text data-detail="context" x="542" y="464" class="t-muted" font-size="8" text-anchor="middle">gracia ~15 días</text>
+        <text data-detail="fine" x="549" y="358" class="t-cloud" font-size="8" font-weight="700">08</text>
+          <text data-node-label="" data-detail-anchor="" x="607.8" y="367" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">EN INSTALACIÓN</text>
+          <text data-detail="context" x="596" y="384" class="t-muted" font-size="8" text-anchor="middle">subestado</text>
         </g>
 
-        <g id="node-suspendido" data-node-id="suspendido" data-node-label="SUSPENDIDO" tabindex="0" role="button" aria-label="Enfocar SUSPENDIDO, aviso previo enviado, Postventa y cobro (Tramos 3–4)" aria-pressed="false" data-node-kind="failure" data-node-sublabel="aviso previo enviado" data-node-context="Postventa y cobro (Tramos 3–4)">
-          <title>SUSPENDIDO · aviso previo enviado · Postventa y cobro (Tramos 3–4)</title>
-          <rect x="693" y="424" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="693" y="424" width="140" height="64" rx="7" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="failure" class="semantic-sigil s-security" transform="translate(699 430) scale(0.6875)">
+        <g id="node-incid" data-node-id="incid" data-node-label="INCIDENCIA INSTALACIÓN" tabindex="0" role="button" aria-label="Enfocar INCIDENCIA INSTALACIÓN, subestado, Instalación y activación" aria-pressed="false" data-node-kind="failure" data-node-sublabel="subestado" data-node-context="Instalación y activación">
+          <title>INCIDENCIA INSTALACIÓN · subestado · Instalación y activación</title>
+          <rect x="526" y="448" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="526" y="448" width="140" height="64" rx="7" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="failure" class="semantic-sigil s-security" transform="translate(532 454) scale(0.6875)">
             <circle cx="8" cy="8" r="5.3"/>
             <path d="m5.7 5.7 4.6 4.6m0-4.6-4.6 4.6"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="763" y="447" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SUSPENDIDO</text>
-          <text data-detail="context" x="763" y="464" class="t-muted" font-size="8" text-anchor="middle">aviso previo enviado</text>
+          <text data-node-label="" data-detail-anchor="" x="596" y="479" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">INCIDENCIA INSTALACIÓN</text>
+          <text data-detail="context" x="596" y="493.6" class="t-muted" font-size="8" text-anchor="middle">subestado</text>
         </g>
 
-        <g id="node-cancelado" data-node-id="cancelado" data-node-label="CANCELADO" tabindex="0" role="button" aria-label="Enfocar CANCELADO, regla por definir, Salida" aria-pressed="false" data-node-kind="failure" data-node-sublabel="regla por definir" data-node-context="Salida">
-          <title>CANCELADO · regla por definir · Salida</title>
-          <rect x="693" y="608" width="140" height="64" rx="7" class="c-mask"/>
-          <rect x="693" y="608" width="140" height="64" rx="7" class="c-security" stroke-width="1.5"/>
-          <rect x="696" y="611" width="134" height="58" rx="4" class="c-security" style="fill: none" stroke-width="1"/>
-          <g aria-hidden="true" data-semantic-sigil="failure" class="semantic-sigil s-security" transform="translate(699 614) scale(0.6875)">
+        <g id="node-instalado" data-node-id="instalado" data-node-label="INSTALADO" tabindex="0" role="button" aria-label="Enfocar INSTALADO, evento, Instalación y activación" aria-pressed="false" data-node-kind="neutral" data-node-sublabel="evento" data-node-context="Instalación y activación">
+          <title>INSTALADO · evento · Instalación y activación</title>
+          <rect x="305" y="344" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="305" y="344" width="140" height="64" rx="7" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="neutral" class="semantic-sigil s-external" transform="translate(311 350) scale(0.6875)">
+            <rect x="3" y="3" width="10" height="10" rx="2"/>
+            <circle cx="8" cy="8" r="1.2" class="sigil-fill"/>
+          </g>
+        <text data-detail="fine" x="328" y="358" class="t-muted" font-size="8" font-weight="700">09</text>
+          <text data-node-label="" data-detail-anchor="" x="375" y="367" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">INSTALADO</text>
+          <text data-detail="context" x="375" y="384" class="t-muted" font-size="8" text-anchor="middle">evento</text>
+        </g>
+
+        <g id="node-activo" data-node-id="activo" data-node-label="ACTIVO" tabindex="0" role="button" aria-label="Enfocar ACTIVO, principal · vehículo activo, Instalación y activación" aria-pressed="false" data-node-kind="active" data-node-sublabel="principal · vehículo activo" data-node-context="Instalación y activación">
+          <title>ACTIVO · principal · vehículo activo · Instalación y activación</title>
+          <rect x="60" y="344" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="60" y="344" width="140" height="64" rx="7" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="active" class="semantic-sigil s-frontend" transform="translate(66 350) scale(0.6875)">
+            <path d="M2 8h3l1.5-3.5L9 12l1.6-4H14"/>
+          </g>
+        <text data-detail="fine" x="83" y="358" class="t-frontend" font-size="8" font-weight="700">10</text>
+          <text data-node-label="" data-detail-anchor="" x="130" y="367" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ACTIVO</text>
+          <text data-detail="context" x="130" y="384" class="t-muted" font-size="8" text-anchor="middle">principal · vehículo activo</text>
+        </g>
+
+        <g id="node-soporte" data-node-id="soporte" data-node-label="SOPORTE ABIERTO" tabindex="0" role="button" aria-label="Enfocar SOPORTE ABIERTO, subestado de ACTIVO, Postventa y cobro" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="subestado de ACTIVO" data-node-context="Postventa y cobro">
+          <title>SOPORTE ABIERTO · subestado de ACTIVO · Postventa y cobro</title>
+          <rect x="60" y="632" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="60" y="632" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(66 638) scale(0.6875)">
+            <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="130" y="655" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SOPORTE ABIERTO</text>
+          <text data-detail="context" x="130" y="672" class="t-muted" font-size="8" text-anchor="middle">subestado de ACTIVO</text>
+        </g>
+
+        <g id="node-pendiente" data-node-id="pendiente" data-node-label="PAGO PENDIENTE" tabindex="0" role="button" aria-label="Enfocar PAGO PENDIENTE, subestado de ACTIVO, Postventa y cobro" aria-pressed="false" data-node-kind="waiting" data-node-sublabel="subestado de ACTIVO" data-node-context="Postventa y cobro">
+          <title>PAGO PENDIENTE · subestado de ACTIVO · Postventa y cobro</title>
+          <rect x="305" y="632" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="305" y="632" width="140" height="64" rx="7" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="waiting" class="semantic-sigil s-cloud" transform="translate(311 638) scale(0.6875)">
+            <path d="M4 2.5h8M4 13.5h8M5 3c0 2.8 2 3.2 3 5-1 1.8-3 2.2-3 5M11 3c0 2.8-2 3.2-3 5 1 1.8 3 2.2 3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="375" y="655" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PAGO PENDIENTE</text>
+          <text data-detail="context" x="375" y="672" class="t-muted" font-size="8" text-anchor="middle">subestado de ACTIVO</text>
+        </g>
+
+        <g id="node-suspendido" data-node-id="suspendido" data-node-label="SUSPENDIDO" tabindex="0" role="button" aria-label="Enfocar SUSPENDIDO, principal, Postventa y cobro" aria-pressed="false" data-node-kind="failure" data-node-sublabel="principal" data-node-context="Postventa y cobro">
+          <title>SUSPENDIDO · principal · Postventa y cobro</title>
+          <rect x="526" y="632" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="526" y="632" width="140" height="64" rx="7" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="failure" class="semantic-sigil s-security" transform="translate(532 638) scale(0.6875)">
             <circle cx="8" cy="8" r="5.3"/>
             <path d="m5.7 5.7 4.6 4.6m0-4.6-4.6 4.6"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="763" y="631" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CANCELADO</text>
-          <text data-detail="context" x="763" y="648" class="t-muted" font-size="8" text-anchor="middle">regla por definir</text>
+          <text data-node-label="" data-detail-anchor="" x="596" y="655" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SUSPENDIDO</text>
+          <text data-detail="context" x="596" y="672" class="t-muted" font-size="8" text-anchor="middle">principal</text>
+        </g>
+
+        <g id="node-cancelado" data-node-id="cancelado" data-node-label="CANCELADO" tabindex="0" role="button" aria-label="Enfocar CANCELADO, principal · final, Salida" aria-pressed="false" data-node-kind="failure" data-node-sublabel="principal · final" data-node-context="Salida">
+          <title>CANCELADO · principal · final · Salida</title>
+          <rect x="526" y="816" width="140" height="64" rx="7" class="c-mask"/>
+          <rect x="526" y="816" width="140" height="64" rx="7" class="c-security" stroke-width="1.5"/>
+          <rect x="529" y="819" width="134" height="58" rx="4" class="c-security" style="fill: none" stroke-width="1"/>
+          <g aria-hidden="true" data-semantic-sigil="failure" class="semantic-sigil s-security" transform="translate(532 822) scale(0.6875)">
+            <circle cx="8" cy="8" r="5.3"/>
+            <path d="m5.7 5.7 4.6 4.6m0-4.6-4.6 4.6"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="596" y="839" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CANCELADO</text>
+          <text data-detail="context" x="596" y="856" class="t-muted" font-size="8" text-anchor="middle">principal · final</text>
         </g>
 
         <!-- Transition labels -->
         <g data-detail="context" data-edge-from="lead" data-edge-to="interesado" data-edge-label="visita" data-edge-key="0">
-          <rect x="212.3" y="67" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
-          <text x="233" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">visita</text>
+          <rect x="231.8" y="67" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
+          <text x="252.5" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">visita</text>
         </g>
         <g data-detail="context" data-edge-from="interesado" data-edge-to="checkout" data-edge-label="compra" data-edge-key="1">
-          <rect x="418.3" y="67" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
-          <text x="439" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">compra</text>
+          <rect x="464.8" y="67" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
+          <text x="485.5" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">compra</text>
         </g>
         <g data-detail="context" data-edge-from="checkout" data-edge-to="pagado" data-edge-label="paga" data-edge-key="2">
-          <rect x="636.5" y="67" width="32" height="16" rx="4" class="c-mask"/>
-          <text x="652.5" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">paga</text>
-        </g>
-        <g data-detail="context" data-edge-from="pagado" data-edge-to="agendada" data-edge-label="agenda" data-edge-key="3">
-          <rect x="850.3" y="67" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
-          <text x="871" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">agenda</text>
-        </g>
-        <g data-detail="context" data-edge-from="agendada" data-edge-to="camino" data-edge-label="sale" data-edge-key="4">
-          <rect x="963" y="124" width="32" height="16" rx="4" class="c-mask"/>
-          <text x="979" y="135" class="t-edge-default" font-size="8" text-anchor="middle">sale</text>
-        </g>
-        <g data-detail="context" data-edge-from="camino" data-edge-to="eninst" data-edge-label="check-in" data-edge-key="5">
-          <rect x="845.4" y="251" width="51.2" height="16" rx="4" class="c-mask"/>
-          <text x="871" y="262" class="t-edge-default" font-size="8" text-anchor="middle">check-in</text>
-        </g>
-        <g data-detail="context" data-edge-from="eninst" data-edge-to="instalado" data-edge-label="check-out" data-edge-key="6">
-          <rect x="624.45" y="251" width="56.1" height="16" rx="4" class="c-mask"/>
-          <text x="652.5" y="262" class="t-edge-default" font-size="8" text-anchor="middle">check-out</text>
-        </g>
-        <g data-detail="context" data-edge-from="instalado" data-edge-to="activo" data-edge-label="activa" data-edge-key="7">
-          <rect x="418.3" y="251" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
-          <text x="439" y="262" class="t-edge-default" font-size="8" text-anchor="middle">activa</text>
-        </g>
-        <g data-detail="context" data-edge-from="checkout" data-edge-to="lead" data-edge-label="abandona" data-edge-key="8">
-          <rect x="310.4" y="159" width="51.2" height="16" rx="4" class="c-mask"/>
-          <text x="336" y="170" class="t-edge-dashed" font-size="8" text-anchor="middle">abandona</text>
-        </g>
-        <g data-detail="context" data-edge-from="activo" data-edge-to="soporte" data-edge-label="ticket" data-edge-key="9">
-          <rect x="182.3" y="307" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
-          <text x="203" y="318" class="t-edge-dashed" font-size="8" text-anchor="middle">ticket</text>
-        </g>
-        <g data-detail="context" data-edge-from="soporte" data-edge-to="activo" data-edge-label="resuelto" data-edge-key="10">
-          <rect x="207.4" y="331" width="51.2" height="16" rx="4" class="c-mask"/>
-          <text x="233" y="342" class="t-edge-emphasis" font-size="8" text-anchor="middle">resuelto</text>
-        </g>
-        <g data-detail="context" data-edge-from="activo" data-edge-to="pendiente" data-edge-label="pago falla" data-edge-key="11">
-          <rect x="408.5" y="379" width="61" height="16" rx="4" class="c-mask"/>
-          <text x="439" y="390" class="t-edge-security" font-size="8" text-anchor="middle">pago falla</text>
-        </g>
-        <g data-detail="context" data-edge-from="pendiente" data-edge-to="activo" data-edge-label="regulariza" data-edge-key="12">
-          <rect x="438.5" y="355" width="61" height="16" rx="4" class="c-mask"/>
-          <text x="469" y="366" class="t-edge-emphasis" font-size="8" text-anchor="middle">regulariza</text>
-        </g>
-        <g data-detail="context" data-edge-from="pendiente" data-edge-to="suspendido" data-edge-label="~15 días" data-edge-key="13">
-          <rect x="626.9" y="435" width="51.2" height="16" rx="4" class="c-mask"/>
-          <text x="652.5" y="446" class="t-edge-security" font-size="8" text-anchor="middle">~15 días</text>
+          <rect x="688" y="67" width="32" height="16" rx="4" class="c-mask"/>
+          <text x="704" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">paga</text>
         </g>
 
+        <g data-detail="context" data-edge-from="abandonado" data-edge-to="lead" data-edge-label="recuperable" data-edge-key="4">
+          <rect x="97.05" y="135" width="65.9" height="16" rx="4" class="c-mask"/>
+          <text x="130" y="146" class="t-edge-dashed" font-size="8" text-anchor="middle">recuperable</text>
+        </g>
+        <g data-detail="context" data-edge-from="pagado" data-edge-to="cuenta" data-edge-label="acceso" data-edge-key="5">
+          <rect x="894.3" y="67" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
+          <text x="915" y="78" class="t-edge-emphasis" font-size="8" text-anchor="middle">acceso</text>
+        </g>
+        <g data-detail="context" data-edge-from="cuenta" data-edge-to="agendada" data-edge-label="agenda" data-edge-key="6">
+          <rect x="997.3" y="124" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
+          <text x="1018" y="135" class="t-edge-default" font-size="8" text-anchor="middle">agenda</text>
+        </g>
+        <g data-detail="context" data-edge-from="agendada" data-edge-to="camino" data-edge-label="sale" data-edge-key="7">
+          <rect x="899" y="355" width="32" height="16" rx="4" class="c-mask"/>
+          <text x="915" y="366" class="t-edge-default" font-size="8" text-anchor="middle">sale</text>
+        </g>
+        <g data-detail="context" data-edge-from="camino" data-edge-to="eninst" data-edge-label="check-in" data-edge-key="8">
+          <rect x="678.4" y="355" width="51.2" height="16" rx="4" class="c-mask"/>
+          <text x="704" y="366" class="t-edge-default" font-size="8" text-anchor="middle">check-in</text>
+        </g>
+        <g data-detail="context" data-edge-from="eninst" data-edge-to="instalado" data-edge-label="todo OK" data-edge-key="9">
+          <rect x="462.35" y="355" width="46.300000000000004" height="16" rx="4" class="c-mask"/>
+          <text x="485.5" y="366" class="t-edge-default" font-size="8" text-anchor="middle">todo OK</text>
+        </g>
+
+        <g data-detail="context" data-edge-from="incid" data-edge-to="agendada" data-edge-label="2ª visita" data-edge-key="11">
+          <rect x="989.95" y="423" width="56.1" height="16" rx="4" class="c-mask"/>
+          <text x="1018" y="434" class="t-edge-dashed" font-size="8" text-anchor="middle">2ª visita</text>
+        </g>
+        <g data-detail="context" data-edge-from="instalado" data-edge-to="activo" data-edge-label="IMEI vinculado" data-edge-key="12">
+          <rect x="212.2" y="348" width="80.60000000000001" height="16" rx="4" class="c-mask"/>
+          <text x="252.5" y="359" class="t-edge-default" font-size="8" text-anchor="middle">IMEI vinculado</text>
+        </g>
+        <g data-detail="context" data-edge-from="activo" data-edge-to="soporte" data-edge-label="ticket" data-edge-key="13">
+          <rect x="103.3" y="411" width="41.400000000000006" height="16" rx="4" class="c-mask"/>
+          <text x="124" y="422" class="t-edge-dashed" font-size="8" text-anchor="middle">ticket</text>
+        </g>
+        <g data-detail="context" data-edge-from="soporte" data-edge-to="activo" data-edge-label="resuelto" data-edge-key="14">
+          <rect x="119.4" y="587" width="51.2" height="16" rx="4" class="c-mask"/>
+          <text x="145" y="598" class="t-edge-emphasis" font-size="8" text-anchor="middle">resuelto</text>
+        </g>
+        <g data-detail="context" data-edge-from="activo" data-edge-to="pendiente" data-edge-label="pago falla" data-edge-key="15">
+          <rect x="222" y="411" width="61" height="16" rx="4" class="c-mask"/>
+          <text x="252.5" y="422" class="t-edge-security" font-size="8" text-anchor="middle">pago falla</text>
+        </g>
+        <g data-detail="context" data-edge-from="pendiente" data-edge-to="activo" data-edge-label="regulariza" data-edge-key="16">
+          <rect x="236" y="587" width="61" height="16" rx="4" class="c-mask"/>
+          <text x="266.5" y="598" class="t-edge-emphasis" font-size="8" text-anchor="middle">regulariza</text>
+        </g>
+        <g data-detail="context" data-edge-from="pendiente" data-edge-to="suspendido" data-edge-label="~15 días*" data-edge-key="17">
+          <rect x="457.45" y="650" width="56.1" height="16" rx="4" class="c-mask"/>
+          <text x="485.5" y="661" class="t-edge-security" font-size="8" text-anchor="middle">~15 días*</text>
+        </g>
+        <g data-detail="context" data-edge-from="suspendido" data-edge-to="activo" data-edge-label="reactiva" data-edge-key="18">
+          <rect x="349.4" y="513" width="51.2" height="16" rx="4" class="c-mask"/>
+          <text x="375" y="524" class="t-edge-emphasis" font-size="8" text-anchor="middle">reactiva</text>
+        </g>
+        <g data-detail="context" data-edge-from="suspendido" data-edge-to="cancelado" data-edge-label="POR DEFINIR" data-edge-key="19">
+          <rect x="563.05" y="700" width="65.9" height="16" rx="4" class="c-mask"/>
+          <text x="596" y="711" class="t-edge-security" font-size="8" text-anchor="middle">POR DEFINIR</text>
+        </g>
 
         <!-- Legend -->
         <g data-legend="" data-legend-bridge="">
-          <text x="40" y="712" class="t-primary" font-size="12" font-weight="650">Leyenda</text>
-          <g data-legend-semantic-kind="start" data-legend-kind="start" data-legend-label="Entrada" data-legend-x="40" data-legend-baseline="732" data-legend-width="90">
-            <circle cx="44.5" cy="728.5" r="4.5" style="fill: var(--arrow-emphasis)"/><path d="M 49 728.5 L 58 728.5" class="a-emphasis" stroke-width="1.4"/><path d="M 57 725 L 64 728.5 L 57 732 Z" style="fill: var(--arrow-emphasis)"/>
-            <text x="74" y="732" class="t-muted" font-size="10" font-weight="500">Entrada</text>
+          <text x="40" y="920" class="t-primary" font-size="12" font-weight="650">Leyenda</text>
+          <g data-legend-semantic-kind="start" data-legend-kind="start" data-legend-label="Entrada (principal)" data-legend-x="40" data-legend-baseline="940" data-legend-width="150">
+            <circle cx="44.5" cy="936.5" r="4.5" style="fill: var(--arrow-emphasis)"/><path d="M 49 936.5 L 58 936.5" class="a-emphasis" stroke-width="1.4"/><path d="M 57 933 L 64 936.5 L 57 940 Z" style="fill: var(--arrow-emphasis)"/>
+            <text x="74" y="940" class="t-muted" font-size="10" font-weight="500">Entrada (principal)</text>
           </g>
-          <g data-legend-semantic-kind="active" data-legend-kind="active" data-legend-label="En curso" data-legend-x="152" data-legend-baseline="732" data-legend-width="83">
-            <rect x="152" y="724" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
-            <text x="174" y="732" class="t-muted" font-size="10" font-weight="500">En curso</text>
+          <g data-legend-semantic-kind="active" data-legend-kind="active" data-legend-label="Estado principal" data-legend-x="212" data-legend-baseline="940" data-legend-width="123">
+            <rect x="212" y="932" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
+            <text x="234" y="940" class="t-muted" font-size="10" font-weight="500">Estado principal</text>
           </g>
-          <g data-legend-semantic-kind="waiting" data-legend-kind="waiting" data-legend-label="En espera" data-legend-x="257" data-legend-baseline="732" data-legend-width="88">
-            <rect x="257" y="724" width="14" height="9" rx="2" class="c-cloud" stroke-width="1"/>
-            <text x="279" y="732" class="t-muted" font-size="10" font-weight="500">En espera</text>
+          <g data-legend-semantic-kind="waiting" data-legend-kind="waiting" data-legend-label="Subestado" data-legend-x="357" data-legend-baseline="940" data-legend-width="88">
+            <rect x="357" y="932" width="14" height="9" rx="2" class="c-cloud" stroke-width="1"/>
+            <text x="379" y="940" class="t-muted" font-size="10" font-weight="500">Subestado</text>
           </g>
-          <g data-legend-semantic-kind="decision" data-legend-kind="decision" data-legend-label="Punto de decisión" data-legend-x="367" data-legend-baseline="732" data-legend-width="128">
-            <rect x="367" y="724" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
-            <text x="389" y="732" class="t-muted" font-size="10" font-weight="500">Punto de decisión</text>
+          <g data-legend-semantic-kind="failure" data-legend-kind="failure" data-legend-label="Excepción / salida" data-legend-x="467" data-legend-baseline="940" data-legend-width="133">
+            <rect x="467" y="932" width="14" height="9" rx="2" class="c-security" stroke-width="1"/>
+            <text x="489" y="940" class="t-muted" font-size="10" font-weight="500">Excepción / salida</text>
           </g>
-          <g data-legend-semantic-kind="success" data-legend-kind="success" data-legend-label="Logro" data-legend-x="517" data-legend-baseline="732" data-legend-width="68">
-            <rect x="517" y="724" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
-            <text x="539" y="732" class="t-muted" font-size="10" font-weight="500">Logro</text>
+          <g data-legend-semantic-kind="neutral" data-legend-kind="neutral" data-legend-label="Evento (registro con fecha)" data-legend-x="622" data-legend-baseline="940" data-legend-width="177">
+            <rect x="622" y="932" width="14" height="9" rx="2" class="c-external" stroke-width="1"/>
+            <text x="644" y="940" class="t-muted" font-size="10" font-weight="500">Evento (registro con fecha)</text>
           </g>
-          <g data-legend-semantic-kind="failure" data-legend-kind="failure" data-legend-label="Excepción / salida" data-legend-x="607" data-legend-baseline="732" data-legend-width="133">
-            <rect x="607" y="724" width="14" height="9" rx="2" class="c-security" stroke-width="1"/>
-            <text x="629" y="732" class="t-muted" font-size="10" font-weight="500">Excepción / salida</text>
-          </g>
-          <g data-legend-semantic-kind="final" data-legend-x="762" data-legend-baseline="732" data-legend-width="84">
-            <rect x="762" y="724" width="14" height="9" rx="2" class="c-external" stroke-width="1"/><rect x="764.5" y="726.5" width="9" height="4" rx="1" class="c-external" style="fill: none" stroke-width="0.8"/>
-            <text x="786" y="732" class="t-muted" font-size="10" font-weight="500">estado final</text>
+          <g data-legend-semantic-kind="final" data-legend-x="821" data-legend-baseline="940" data-legend-width="84">
+            <rect x="821" y="932" width="14" height="9" rx="2" class="c-external" stroke-width="1"/><rect x="823.5" y="934.5" width="9" height="4" rx="1" class="c-external" style="fill: none" stroke-width="0.8"/>
+            <text x="845" y="940" class="t-muted" font-size="10" font-weight="500">estado final</text>
           </g>
         </g>
       </svg>
@@ -5516,26 +5583,50 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="cards">
       <div class="card">
         <div class="card-header">
-          <div class="card-dot rose"></div>
-          <h3>Bot de Telegram (alertas internas)</h3>
+          <div class="card-dot cyan"></div>
+          <h3>Propuesta: estados principales (6)</h3>
         </div>
         <ul>
-          <li>Nueva venta · nueva instalación · instalación próxima</li>
-          <li>Problema técnico · GPS offline · ticket urgente</li>
-          <li>Pago fallido · emergencia</li>
+          <li>LEAD · PAGADO · INSTALACIÓN AGENDADA · ACTIVO · SUSPENDIDO · CANCELADO</li>
+          <li>Son las etapas del pipeline del CRM</li>
+          <li>Propuesta a validar con el equipo</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <div class="card-dot cyan"></div>
-          <h3>Principios del proceso</h3>
+          <div class="card-dot amber"></div>
+          <h3>Subestados y eventos</h3>
         </div>
         <ul>
-          <li>Automatización primero · autoservicio · baja fricción</li>
-          <li>Intervención humana solo cuando es necesaria</li>
-          <li>Experiencia premium · confianza · tecnología</li>
-          <li>Soporte postventa · retención</li>
+          <li>Subestados: INTERESADO, CHECKOUT INICIADO, CHECKOUT ABANDONADO, TÉCNICO EN CAMINO, EN INSTALACIÓN, INCIDENCIA INSTALACIÓN, SOPORTE ABIERTO, PAGO PENDIENTE</li>
+          <li>Eventos (fecha y hora, no etapa): CUENTA CREADA, INSTALADO</li>
+          <li>Soporte detallado: ABIERTO → EN REVISIÓN → ESPERANDO CLIENTE / VISITA TÉCNICA → RESUELTO (Tramo 3B)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot rose"></div>
+          <h3>Bot de Telegram por nivel</h3>
+        </div>
+        <ul>
+          <li>INFO: nueva venta · instalación agendada</li>
+          <li>ATENCIÓN: instalación próxima · pago fallido · GPS offline persistente</li>
+          <li>URGENTE: instalación crítica · ticket urgente · incidente de seguridad · emergencia</li>
+          <li>Solo URGENTE notifica de inmediato; INFO puede ir en resumen para evitar exceso</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot slate"></div>
+          <h3>POR DEFINIR</h3>
+        </div>
+        <ul>
+          <li>*Plazo de gracia ~15 días: REFERENCIAL</li>
+          <li>Regla para pasar de SUSPENDIDO a CANCELADO</li>
+          <li>CANCELACIÓN SOLICITADA (antes de instalar): subestado o directo a CANCELADO</li>
         </ul>
       </div>
     </div>
