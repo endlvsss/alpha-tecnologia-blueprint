@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alpha Tecnología · Service Blueprint B2C</title>
+<style>
+  :root {
+    --bg: #070b14; --panel: #0d1424; --line: #1d2940; --text: #e6edf7; --muted: #8a98b3;
+    --cyan: #22d3ee; --violet: #a78bfa; --emerald: #34d399; --amber: #f5b14c; --rose: #fb7185; --blue: #60a5fa; --slate: #94a3b8;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(1200px 600px at 80% -10%, #0e2a3d 0%, transparent 60%), var(--bg); color: var(--text);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
+  main { max-width: 1120px; margin: 0 auto; padding: 48px 16px 64px; }
+  .eyebrow { color: var(--cyan); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 600; }
+  h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin: 8px 0 12px; }
+  .lead { color: var(--muted); max-width: 760px; margin: 0; }
+  h2 { font-size: 18px; margin: 44px 0 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 6px 12px; font-size: 13px; }
+  .chip b { color: var(--cyan); font-weight: 600; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  a.card { display: block; text-decoration: none; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; transition: border-color .15s, transform .15s; }
+  a.card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+  .card .num { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--cyan); }
+  .card h3 { margin: 6px 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+  .card .go { margin-top: 12px; font-size: 13px; color: var(--cyan); }
+  .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px 16px; }
+  .legend div { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .sw { width: 22px; height: 14px; border-radius: 4px; border: 1.5px solid; flex: none; }
+  .states { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .states span { padding: 6px 10px; border-radius: 8px; border: 1px solid #5b4bb3; background: #1a1538; color: #d9d0ff; }
+  .states span.x { border-color: #9f3a4d; background: #2a1219; color: #ffc7d1; }
+  .states i { color: var(--muted); font-style: normal; }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .box { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .box h3 { margin: 0 0 10px; font-size: 16px; }
+  .box ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .box li { margin: 3px 0; }
+  .note { color: var(--muted); font-size: 13px; margin-top: 40px; border-top: 1px solid var(--line); padding-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Alpha Tecnología · Lanzamiento B2C</div>
+  <h1>Customer Journey + Service Blueprint</h1>
+  <p class="lead">Recorrido completo de un cliente particular, desde que ve un anuncio hasta que suma más vehículos. Se lee de izquierda a derecha, en 7 franjas: Cliente, Touchpoint / Interfaz, Plataforma Alpha, Automatizaciones, CRM, Técnico freelance y Soporte humano. Las personas del equipo intervienen solo en excepciones, soporte complejo o emergencias.</p>
+
+  <h2>Principios del proceso</h2>
+  <div class="chips">
+    <span class="chip"><b>01</b> Automatización primero</span>
+    <span class="chip"><b>02</b> Autoservicio</span>
+    <span class="chip"><b>03</b> Baja fricción</span>
+    <span class="chip"><b>04</b> Humano solo cuando es necesario</span>
+    <span class="chip"><b>05</b> Experiencia premium</span>
+    <span class="chip"><b>06</b> Confianza</span>
+    <span class="chip"><b>07</b> Tecnología</span>
+    <span class="chip"><b>08</b> Soporte postventa</span>
+    <span class="chip"><b>09</b> Retención</span>
+  </div>
+
+  <h2>Diagramas (ábrelos en orden)</h2>
+  <div class="grid">
+    <a class="card" href="1-adquisicion/1-adquisicion.html">
+      <div class="num">TRAMO 1 · ETAPAS 1–5</div>
+      <h3>Adquisición y compra</h3>
+      <p>Redes y anuncios → landing → plan → checkout → pago Webpay/tarjeta. Remarketing si abandona y avisos si el pago falla.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card" href="2-instalacion/2-instalacion.html">
+      <div class="num">TRAMO 2 · ETAPAS 6–12</div>
+      <h3>Agenda, instalación y activación</h3>
+      <p>Disponibilidad de técnicos → agenda automática → recordatorios → check-in → instalación y pruebas → check-out → GPS activo.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card" href="3-uso-soporte/3-uso-soporte.html">
+      <div class="num">TRAMO 3 · ETAPAS 13–16</div>
+      <h3>Onboarding, uso y soporte</h3>
+      <p>Onboarding por WhatsApp y email, uso de la plataforma, bot de soporte con ticket automático y monitoreo proactivo de incidentes normales y críticos.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card" href="4-cobro-crecimiento/4-cobro-crecimiento.html">
+      <div class="num">TRAMO 4 · ETAPAS 17–20</div>
+      <h3>Cobro, retención y crecimiento</h3>
+      <p>Cobro recurrente con período de gracia y suspensión, mensajes de los días 7 y 30, venta cruzada multi-vehículo y bifurcación futura a empresa o flota.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+    <a class="card" href="5-estados-crm/5-estados-crm.html">
+      <div class="num">VISTA GENERAL</div>
+      <h3>Estados del CRM + alertas Telegram</h3>
+      <p>Los 13 estados del cliente y cómo pasa de uno a otro, más las alertas internas del bot de Telegram.</p>
+      <div class="go">Abrir diagrama →</div>
+    </a>
+  </div>
+
+  <h2>Cómo leer los colores</h2>
+  <div class="legend">
+    <div><span class="sw" style="border-color:#94a3b8"></span>Acción del cliente</div>
+    <div><span class="sw" style="border-color:var(--cyan)"></span>Touchpoint / interfaz</div>
+    <div><span class="sw" style="border-color:var(--emerald)"></span>Sistema / plataforma</div>
+    <div><span class="sw" style="border-color:var(--amber);background:#3a2410"></span>Automatización</div>
+    <div><span class="sw" style="border-color:var(--violet)"></span>Estado del CRM</div>
+    <div><span class="sw" style="border-color:#e2b04a"></span>Acción humana (técnico / ejecutivo)</div>
+    <div><span class="sw" style="border-color:var(--rose)"></span>Decisión ◆ / excepción</div>
+    <div><span class="sw" style="border-color:var(--rose);border-style:dashed"></span>Flecha roja punteada = camino de excepción</div>
+  </div>
+
+  <h2>Estados del CRM</h2>
+  <div class="states">
+    <span>LEAD</span><i>→</i><span>INTERESADO</span><i>→</i><span>CHECKOUT INICIADO</span><i>→</i><span>PAGADO</span><i>→</i><span>INSTALACIÓN AGENDADA</span><i>→</i><span>TÉCNICO EN CAMINO</span><i>→</i><span>EN INSTALACIÓN</span><i>→</i><span>INSTALADO</span><i>→</i><span>ACTIVO</span>
+    <i>·</i><span>SOPORTE</span><span class="x">PAGO PENDIENTE</span><span class="x">SUSPENDIDO</span><span class="x">CANCELADO</span>
+  </div>
+
+  <h2>Detalles clave</h2>
+  <div class="two">
+    <div class="box">
+      <h3>Bot de Telegram (alertas internas)</h3>
+      <ul>
+        <li>Nueva venta · nueva instalación · instalación próxima</li>
+        <li>Problema técnico · GPS offline · ticket urgente</li>
+        <li>Pago fallido · emergencia</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Decisiones del recorrido</h3>
+      <ul>
+        <li>¿Completó checkout? · ¿Pago aprobado?</li>
+        <li>¿Hay disponibilidad técnica? · ¿Instalación exitosa?</li>
+        <li>¿Problema resuelto por bot? · ¿Incidente crítico?</li>
+        <li>¿Pago mensual exitoso? · ¿Tiene otro vehículo?</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Por definir</h3>
+      <ul>
+        <li>Nombres, precios y funciones de los planes (Starter · Pro · Max son provisionales)</li>
+        <li>Costo inicial de equipo + instalación y descuento anual</li>
+        <li>Regla exacta para pasar de SUSPENDIDO a CANCELADO</li>
+        <li>Corte de motor: solo cuando esté validado técnicamente</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Fuera de alcance (por ahora)</h3>
+      <ul>
+        <li>EMPRESA / FLOTA: requiere un customer journey B2B diferente</li>
+        <li>Proceso consultivo con un ejecutivo humano</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note">Cada diagrama es interactivo: haz clic en una caja para destacar sus conexiones, usa “Ruta” para seguir un camino y “Exportar” para descargarlo como imagen (PNG/SVG) para presentaciones.</p>
+</main>
+</body>
+</html>

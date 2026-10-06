@@ -1,0 +1,5 @@
+*.browser-check.json
+*.delivery.json
+*.finalize.json
+*.finalize-summary.json
+.DS_Store
